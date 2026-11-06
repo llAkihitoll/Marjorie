@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marjorie Pineda | Bioquímica</title>
+  <meta name="description" content="Portafolio de Marjorie Pineda: bioquímica, investigación, innovación y comunicación científica.">
+  <meta name="theme-color" content="#18352f">
+
+  <!-- Open Graph (vista previa al compartir el enlace) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marjorie Pineda · Tu científica de confianza">
+  <meta property="og:description" content="Descubriendo mi mundo en micro y macro.">
+
+  <!-- Fuentes: conexión anticipada + display=swap para no bloquear el texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/PFP.jpeg" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+
+  <!-- Marca que hay JS antes de pintar (pestañas y animaciones sin parpadeo) -->
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<!--
+  =====================================================================
+  CONTENIDO PENDIENTE (marcado en la página con [Pendiente: …])
+  Busca "pendiente" en este archivo para encontrar cada hueco.
+    · Inicio:         frase de bienvenida
+    · Perfil:         foto de laboratorio, institución,
+                      video CV (assets/video-cv.mp4), manifiesto y arquetipos
+    · Blog:           fecha, desarrollo de cada punto, nota al margen y conclusión
+    · Portafolio:     estado, fechas, palabras clave e imágenes de cada proyecto
+                      (las imágenes se agregan en js/main.js → projectGalleries)
+    · Contacto:       teléfono (opcional)
+  Colores y tipografías: css/styles.css → :root
+  =====================================================================
+-->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">
+        <!-- Anillo hexagonal (estructura molecular) -->
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <polygon points="20,10 29,15 29,25 20,30 11,25 11,15" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".45"/>
+          <circle cx="20" cy="3" r="2.6"/><circle cx="35" cy="28.5" r="2.6"/><circle cx="5" cy="28.5" r="2.6"/>
+        </svg>
+        <span>Marjorie Pineda <span class="brand-tagline">Tu científica de confianza</span></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#blog">Blog</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#contacto" class="btn btn--sm nav-cta">Colaboremos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ================= INICIO ================= -->
+    <section id="inicio" class="page hero" aria-labelledby="inicio-title">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="mono-label reveal">Bioquímica · Ciencia · Curiosidad</p>
+          <!-- PENDIENTE: escribe una frase corta de bienvenida (ej. "Bienvenido/a a mi espacio de ciencia"). Reemplaza todo el <span class="pendiente">…</span> por el texto. -->
+          <p class="hero-welcome reveal"><span class="pendiente">[Pendiente: frase de bienvenida]</span></p>
+          <h1 id="inicio-title" class="editorial-title reveal" tabindex="-1">Marjorie Pineda</h1>
+          <p class="hero-subtitle reveal">Descubriendo mi mundo en <em>micro</em> y <em>macro</em>.</p>
+
+          <!-- Escala: de lo molecular a lo cotidiano -->
+          <div class="scale reveal" aria-hidden="true">
+            <span>10<sup>−9</sup> m</span>
+            <span class="scale-line"></span>
+            <span>10<sup>3</sup> m</span>
+          </div>
+
+          <p class="hero-description reveal">Me gusta descubrir qué hay detrás de lo que vemos: desde los procesos a escala molecular hasta las ideas y culturas que encuentro cuando viajo.</p>
+
+          <ul class="tags reveal" aria-label="Áreas de trabajo">
+            <li class="tag">Investigación</li>
+            <li class="tag">Innovación</li>
+            <li class="tag">Comunicación científica</li>
+          </ul>
+
+          <div class="btn-row reveal">
+            <a href="#portafolio" class="btn">Ver mi portafolio <span aria-hidden="true">→</span></a>
+            <a href="#perfil" class="btn btn--ghost">Conóceme</a>
+          </div>
+        </div>
+
+        <figure class="hero-media reveal">
+          <!-- Molécula decorativa -->
+          <svg class="molecule molecule--a" viewBox="0 0 200 200" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="2.5">
+              <line x1="40" y1="60" x2="100" y2="40"/><line x1="100" y1="40" x2="150" y2="85"/>
+              <line x1="150" y1="85" x2="130" y2="150"/><line x1="100" y1="40" x2="95" y2="110"/>
+              <line x1="95" y1="110" x2="130" y2="150"/><line x1="95" y1="110" x2="45" y2="140"/>
+            </g>
+            <g fill="currentColor">
+              <circle cx="40" cy="60" r="9"/><circle cx="100" cy="40" r="13"/><circle cx="150" cy="85" r="10"/>
+              <circle cx="130" cy="150" r="12"/><circle cx="95" cy="110" r="15"/><circle cx="45" cy="140" r="8"/>
+            </g>
+          </svg>
+          <svg class="molecule molecule--b" viewBox="0 0 120 120" aria-hidden="true">
+            <polygon points="60,10 103,35 103,85 60,110 17,85 17,35" fill="none" stroke="currentColor" stroke-width="3"/>
+            <polygon points="60,28 88,44 88,76 60,92 32,76 32,44" fill="none" stroke="currentColor" stroke-width="2" opacity=".5"/>
+          </svg>
+
+          <div class="hex-frame">
+            <img class="hero-photo"
+                 src="assets/PFP.jpeg"
+                 width="1600" height="1094"
+                 fetchpriority="high" decoding="async"
+                 alt="Marjorie Pineda con bata de laboratorio, sentada junto a su laptop y sus cuadernos">
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= PERFIL ================= -->
+    <section id="perfil" class="page section" aria-labelledby="perfil-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="mono-label reveal">01 · Perfil</p>
+          <h2 id="perfil-title" class="section-title reveal" tabindex="-1">Hola, soy Marjorie.</h2>
+        </header>
+
+        <div class="profile-grid">
+          <!-- Ficha tipo etiqueta de muestra -->
+          <aside class="specimen reveal" aria-label="Ficha personal">
+            <!-- PENDIENTE: foto de laboratorio. Guarda la imagen en assets/ y reemplaza el <span> por: <img src="assets/NOMBRE.jpg" alt="Descripción de la foto" loading="lazy"> -->
+            <div class="specimen-photo"><span class="pendiente">[Pendiente: foto de laboratorio]</span></div>
+            <dl class="specimen-data">
+              <div><dt>Nombre</dt><dd>Marjorie Pineda</dd></div>
+              <div><dt>Área</dt><dd>Bioquímica</dd></div>
+              <div><dt>Enfoque</dt><dd>Investigación · Innovación · Comunicación científica</dd></div>
+              <!-- PENDIENTE: nombre de la universidad o institución donde estudia (ej. "Universidad …"). Reemplaza el <span> por el texto. -->
+              <div><dt>Institución</dt><dd><span class="pendiente">[Pendiente]</span></dd></div>
+            </dl>
+          </aside>
+
+          <div class="profile-body">
+            <p class="lead reveal">La biotecnología me enseñó a observar con atención, hacer mejores preguntas y buscar posibilidades donde otros ven problemas.</p>
+            <p class="text-muted reveal">Puedo aportar una mirada científica, creativa y adaptable a proyectos de investigación, innovación y comunicación.</p>
+
+            <h3 class="mini-title reveal">Mis elementos</h3>
+            <!-- Cualidades como elementos de la tabla periódica -->
+            <ul class="elements reveal" aria-label="Cualidades">
+              <li class="element"><span class="el-num">01</span><span class="el-sym" aria-hidden="true">Cu</span><span class="el-name">Curiosidad</span></li>
+              <li class="element"><span class="el-num">02</span><span class="el-sym" aria-hidden="true">Ob</span><span class="el-name">Observación</span></li>
+              <li class="element"><span class="el-num">03</span><span class="el-sym" aria-hidden="true">Cr</span><span class="el-name">Creatividad</span></li>
+              <li class="element"><span class="el-num">04</span><span class="el-sym" aria-hidden="true">Pc</span><span class="el-name">Pensamiento crítico</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Presentación: video + CV -->
+        <div class="block">
+          <p class="mono-label reveal">Material complementario</p>
+          <h3 class="sub-title reveal">Mi presentación</h3>
+          <div class="media-grid">
+            <div class="video-wrap reveal">
+              <!-- PENDIENTE: guarda el video CV como assets/video-cv.mp4 (formato MP4). No hay que cambiar nada aquí. -->
+              <video class="video" controls preload="none" playsinline>
+                <source src="assets/video-cv.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+              </video>
+              <!-- PENDIENTE: cuando el video esté en assets/video-cv.mp4, borra esta línea <p class="note">…</p> completa. -->
+              <p class="note"><span class="pendiente">[Pendiente: video CV]</span></p>
+            </div>
+            <div class="cv-card reveal">
+              <p class="mono-label">Documento</p>
+              <h4 class="cv-title">Currículum vitae</h4>
+              <p class="text-muted">Mi recorrido completo en un solo archivo.</p>
+              <a href="assets/cv.pdf" download="CV-Marjorie-Pineda.pdf" class="btn">Descargar CV (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manifiesto como protocolo -->
+        <div class="block protocol reveal">
+          <div class="protocol-head">
+            <p class="mono-label">Manifiesto · Protocolo personal</p>
+            <!-- PENDIENTE: título del manifiesto (una frase que resuma su filosofía). Reemplaza el <span> por el texto. -->
+            <h3 class="sub-title"><span class="pendiente">[Pendiente: título del manifiesto]</span></h3>
+          </div>
+          <ol class="protocol-steps">
+            <!-- PENDIENTE (manifiesto 1/5): completa la frase "Creo que…" con su creencia principal. Reemplaza el <span> por el texto. -->
+            <li><span class="step">Paso 01</span><p>Creo que… <span class="pendiente">[Pendiente]</span></p></li>
+            <!-- PENDIENTE (manifiesto 2/5): completa "Me mueve…" con lo que la motiva. Reemplaza el <span> por el texto. -->
+            <li><span class="step">Paso 02</span><p>Me mueve… <span class="pendiente">[Pendiente]</span></p></li>
+            <!-- PENDIENTE (manifiesto 3/5): completa "Valoro…" con lo que más valora. Reemplaza el <span> por el texto. -->
+            <li><span class="step">Paso 03</span><p>Valoro… <span class="pendiente">[Pendiente]</span></p></li>
+            <!-- PENDIENTE (manifiesto 4/5): completa "Prometo…" con su compromiso. Reemplaza el <span> por el texto. -->
+            <li><span class="step">Paso 04</span><p>Prometo… <span class="pendiente">[Pendiente]</span></p></li>
+            <!-- PENDIENTE (manifiesto 5/5): completa "Deseo aportar al mundo…" con lo que quiere aportar. Reemplaza el <span> por el texto. -->
+            <li><span class="step">Paso 05</span><p>Deseo aportar al mundo… <span class="pendiente">[Pendiente]</span></p></li>
+          </ol>
+        </div>
+
+        <!-- Arquetipos como fórmula -->
+        <div class="block">
+          <p class="mono-label reveal">Identidad</p>
+          <h3 class="sub-title reveal">La fórmula de mi marca</h3>
+          <div class="formula reveal" role="list">
+            <div class="reagent" role="listitem">
+              <span class="reagent-role">Principal</span>
+              <!-- PENDIENTE: nombre del arquetipo PRINCIPAL de su marca (ej. El Sabio, El Explorador, El Creador…). Reemplaza el <span> por el nombre. -->
+              <h4 class="reagent-name"><span class="pendiente">[Pendiente: arquetipo]</span></h4>
+              <!-- PENDIENTE: 1 o 2 frases explicando por qué ese arquetipo principal la representa. -->
+              <p class="reagent-desc"><span class="pendiente">[Pendiente: descripción]</span></p>
+            </div>
+            <span class="op" aria-hidden="true">+</span>
+            <div class="reagent" role="listitem">
+              <span class="reagent-role">Secundario</span>
+              <!-- PENDIENTE: nombre del arquetipo SECUNDARIO de su marca. Reemplaza el <span> por el nombre. -->
+              <h4 class="reagent-name"><span class="pendiente">[Pendiente: arquetipo]</span></h4>
+              <!-- PENDIENTE: 1 o 2 frases explicando el arquetipo secundario. -->
+              <p class="reagent-desc"><span class="pendiente">[Pendiente: descripción]</span></p>
+            </div>
+            <span class="op" aria-hidden="true">+</span>
+            <div class="reagent" role="listitem">
+              <span class="reagent-role">Complementario</span>
+              <!-- PENDIENTE: nombre del arquetipo COMPLEMENTARIO de su marca. Reemplaza el <span> por el nombre. -->
+              <h4 class="reagent-name"><span class="pendiente">[Pendiente: arquetipo]</span></h4>
+              <!-- PENDIENTE: 1 o 2 frases explicando el arquetipo complementario. -->
+              <p class="reagent-desc"><span class="pendiente">[Pendiente: descripción]</span></p>
+            </div>
+            <span class="op" aria-hidden="true">→</span>
+            <div class="product" role="listitem">Marjorie</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BLOG ================= -->
+    <section id="blog" class="page section" aria-labelledby="blog-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="mono-label reveal">02 · Blog</p>
+          <h2 id="blog-title" class="section-title reveal" tabindex="-1">Dentro de mi mente</h2>
+          <p class="section-intro reveal">Aprendizajes y reflexiones sobre ciencia, biotecnología y exploración.</p>
+        </header>
+
+        <!-- Entrada con aspecto de libreta de laboratorio -->
+        <article class="notebook reveal">
+          <header class="notebook-header">
+            <p class="notebook-meta">
+              <span>Entrada n.º 001</span>
+              <!-- PENDIENTE: fecha de publicación del artículo (ej. "2 de noviembre de 2026"). El tiempo de lectura se calcula solo. -->
+              <span><span class="pendiente">[Pendiente: fecha]</span></span>
+              <span id="read-time">— min de lectura</span>
+            </p>
+            <h3 class="notebook-title">5 formas en que la curiosidad define mi marca personal</h3>
+            <ul class="tags tags--sm" aria-label="Etiquetas">
+              <li class="tag">Marca personal</li>
+              <li class="tag">Curiosidad</li>
+            </ul>
+          </header>
+
+          <div class="notebook-body" id="article-body">
+            <p class="notebook-lead">Preguntar, entender procesos, conectar ideas, explorar y compartir lo que aprendo.</p>
+
+            <h4><span class="obs">Obs. 1</span> Preguntar</h4>
+            <!-- PENDIENTE (blog, punto 1): desarrolla "Preguntar" en uno o varios párrafos. Para más párrafos, agrega más etiquetas <p>…</p>. -->
+            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+
+            <h4><span class="obs">Obs. 2</span> Entender procesos</h4>
+            <!-- PENDIENTE (blog, punto 2): desarrolla "Entender procesos". -->
+            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+
+            <h4><span class="obs">Obs. 3</span> Conectar ideas</h4>
+            <!-- PENDIENTE (blog, punto 3): desarrolla "Conectar ideas". -->
+            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+
+            <aside class="margin-note" aria-label="Nota al margen">
+              <span class="mono-label">Nota al margen</span>
+              <!-- PENDIENTE: una frase o idea destacada del artículo; se muestra como nota adhesiva. Si no se quiere, borra todo el bloque <aside class="margin-note">…</aside>. -->
+              <p><span class="pendiente">[Pendiente: idea destacada]</span></p>
+            </aside>
+
+            <h4><span class="obs">Obs. 4</span> Explorar</h4>
+            <!-- PENDIENTE (blog, punto 4): desarrolla "Explorar". -->
+            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+
+            <h4><span class="obs">Obs. 5</span> Compartir lo que aprendo</h4>
+            <!-- PENDIENTE (blog, punto 5): desarrolla "Compartir lo que aprendo". -->
+            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+
+            <h4><span class="obs">Concl.</span> Lo que me llevo</h4>
+            <!-- PENDIENTE: conclusión del artículo (cierre o reflexión final). -->
+            <p><span class="pendiente">[Pendiente: conclusión]</span></p>
+          </div>
+
+          <footer class="notebook-footer">
+            <a href="#perfil" class="btn btn--ghost btn--sm"><span aria-hidden="true">←</span> Perfil</a>
+            <a href="#portafolio" class="btn btn--ghost btn--sm">Portafolio <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= PORTAFOLIO ================= -->
+    <section id="portafolio" class="page section" aria-labelledby="portafolio-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="mono-label reveal">03 · Portafolio</p>
+          <h2 id="portafolio-title" class="section-title reveal" tabindex="-1">¿Ya viste mis trabajos?</h2>
+        </header>
+
+        <!-- Proyecto destacado, con formato de artículo científico -->
+        <article class="paper paper--featured reveal">
+          <div class="paper-figure">
+            <svg class="paper-plate" viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="100" cy="100" r="78" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/>
+              <g fill="currentColor" opacity=".55">
+                <circle cx="75" cy="80" r="18"/><circle cx="128" cy="92" r="12"/><circle cx="96" cy="132" r="15"/>
+                <circle cx="135" cy="135" r="6"/><circle cx="62" cy="122" r="5"/>
+              </g>
+            </svg>
+            <!-- PENDIENTE: imagen principal del proyecto destacado. Reemplaza el <span> (y si quieres también el <svg> de la placa de Petri) por: <img src="assets/NOMBRE.jpg" alt="Descripción" loading="lazy">. Las fotos de la galería "Ver imágenes" van en js/main.js → projectGalleries.hongos -->
+            <span class="pendiente">[Pendiente: imagen del proyecto]</span>
+          </div>
+          <div class="paper-body">
+            <div class="paper-top">
+              <span class="badge">Proyecto destacado</span>
+              <span class="paper-id">P-01</span>
+            </div>
+            <h3 class="paper-title">Hongos bajo electricidad, un nuevo vistazo</h3>
+            <!-- PENDIENTE: estado del proyecto (ej. Finalizado / En curso) y fechas (ej. Feb 2025 — Jun 2025). Reemplaza cada <span> por el texto. -->
+            <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
+            <p class="paper-label">Resumen</p>
+            <p class="paper-abstract">Este estudio evaluó el efecto de campos eléctricos sobre el crecimiento, el antagonismo y la actividad celulolítica de dos especies de <em>Stemphylium</em>. Se observaron cambios en el crecimiento y la organización micelial; no se detectó actividad celulolítica concluyente.</p>
+            <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas (ej. Stemphylium, campos eléctricos, micología). -->
+            <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
+            <div class="paper-actions">
+              <button type="button" class="link-btn" data-gallery="hongos">Ver imágenes</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Otros proyectos, en formato de lista de publicaciones -->
+        <h3 class="mini-title reveal">Otros proyectos</h3>
+        <ol class="paper-list">
+          <li class="paper reveal">
+            <span class="paper-id">P-02</span>
+            <div class="paper-body">
+              <h3 class="paper-title">Ensayo lipídico sobre las tierras</h3>
+              <!-- PENDIENTE: estado y fechas de este proyecto. Las fotos de "Ver imágenes" van en js/main.js → projectGalleries.lipidos -->
+              <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
+              <p class="paper-abstract">Un estudio sobre bacterias del suelo y su capacidad para degradar lípidos presentes en aceites usados.</p>
+              <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas. -->
+              <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
+            </div>
+            <div class="paper-actions">
+              <button type="button" class="link-btn" data-gallery="lipidos">Ver imágenes</button>
+            </div>
+          </li>
+          <li class="paper reveal">
+            <span class="paper-id">P-03</span>
+            <div class="paper-body">
+              <h3 class="paper-title">Uso de jabones no dañinos al ambiente</h3>
+              <!-- PENDIENTE: estado y fechas de este proyecto. Las fotos de "Ver imágenes" van en js/main.js → projectGalleries.jabones -->
+              <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
+              <p class="paper-abstract">Proyecto enfocado en alternativas de limpieza más amigables con el ambiente.</p>
+              <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas. -->
+              <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
+            </div>
+            <div class="paper-actions">
+              <button type="button" class="link-btn" data-gallery="jabones">Ver imágenes</button>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+    <section id="contacto" class="page section" aria-labelledby="contacto-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="mono-label reveal">04 · Contacto</p>
+          <h2 id="contacto-title" class="section-title reveal" tabindex="-1">Hablemos de ciencia y nuevas ideas.</h2>
+          <p class="section-intro reveal">Me encantará conectar y compartir aprendizajes.</p>
+        </header>
+
+        <div class="contact-grid">
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <p class="mono-label">Formulario de solicitud</p>
+            <div class="field">
+              <label for="form-name">Tu nombre</label>
+              <input type="text" id="form-name" name="name" placeholder="Nombre completo" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="form-email">Tu correo</label>
+              <input type="email" id="form-email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="form-message">Mensaje</label>
+              <textarea id="form-message" name="message" rows="5" placeholder="Cuéntame tu idea, proyecto o pregunta…" required></textarea>
+            </div>
+            <!-- Anti-spam: los humanos no ven este campo -->
+            <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="btn btn--full">Enviar mensaje <span aria-hidden="true">→</span></button>
+            <p class="note">Tu mensaje llegará directamente a mi correo.</p>
+          </form>
+
+          <div class="contact-info reveal">
+            <dl class="contact-list">
+              <div>
+                <dt>Correo</dt>
+                <dd><a href="mailto:sprellets@gmail.com">sprellets@gmail.com</a></dd>
+              </div>
+              <div>
+                <dt>Teléfono</dt>
+                <!-- PENDIENTE (opcional): número de teléfono, ej. <a href="tel:+50200000000">+502 0000 0000</a>. Si no se quiere mostrar, borra todo el bloque <div> de Teléfono. -->
+                <dd><span class="pendiente">[Pendiente: opcional]</span></dd>
+              </div>
+              <div>
+                <dt>Redes</dt>
+                <dd>
+                  <ul class="social" aria-label="Redes sociales">
+                    <li><a href="https://www.instagram.com/marz_place/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a></li>
+                    <li><a href="https://www.tiktok.com/@marz_place" target="_blank" rel="noopener noreferrer">TikTok <span aria-hidden="true">↗</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/marjorie-pineda-183ba6425/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Marjorie Pineda · Curiosidad por aprender, descubrir y compartir.</p>
+      <nav class="footer-links" aria-label="Enlaces del pie">
+        <a href="#inicio">Inicio</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Galería de imágenes de proyectos -->
+  <dialog class="gallery" id="gallery" aria-labelledby="gallery-title">
+    <div class="gallery-header">
+      <h2 class="gallery-title" id="gallery-title"></h2>
+      <button type="button" class="icon-btn" id="gallery-close" aria-label="Cerrar galería">×</button>
+    </div>
+    <div class="gallery-viewer">
+      <button type="button" class="icon-btn" id="gallery-prev" aria-label="Imagen anterior">‹</button>
+      <figure class="gallery-figure">
+        <img id="gallery-img" alt="" decoding="async">
+        <figcaption id="gallery-desc"></figcaption>
+        <p class="gallery-empty" id="gallery-empty">Aún no hay imágenes de este proyecto.</p>
+      </figure>
+      <button type="button" class="icon-btn" id="gallery-next" aria-label="Imagen siguiente">›</button>
+    </div>
+    <div class="gallery-footer">
+      <span class="gallery-counter" aria-live="polite"><span id="gallery-current">0</span> / <span id="gallery-total">0</span></span>
+      <div class="gallery-thumbs" id="gallery-thumbs"></div>
+    </div>
+  </dialog>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Volver arriba">↑</button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
