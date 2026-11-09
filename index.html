@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marjorie Pineda | Bioquímica</title>
-  <meta name="description" content="Portafolio de Marjorie Pineda: bioquímica, investigación, innovación y comunicación científica.">
+  <title>Marjorie Pineda | Biotecnología</title>
+  <meta name="description" content="Portafolio de Marjorie Pineda: biotecnología, investigación, innovación y comunicación científica.">
   <meta name="theme-color" content="#18352f">
 
   <!-- Open Graph (vista previa al compartir el enlace) -->
@@ -28,13 +28,9 @@
   =====================================================================
   CONTENIDO PENDIENTE (marcado en la página con [Pendiente: …])
   Busca "pendiente" en este archivo para encontrar cada hueco.
-    · Inicio:         frase de bienvenida
-    · Perfil:         foto de laboratorio, institución,
-                      video CV (assets/video-cv.mp4), manifiesto y arquetipos
     · Blog:           fecha, desarrollo de cada punto, nota al margen y conclusión
-    · Portafolio:     estado, fechas, palabras clave e imágenes de cada proyecto
+    · Portafolio:     rol, estado, fechas, palabras clave e imágenes de cada proyecto
                       (las imágenes se agregan en js/main.js → projectGalleries)
-    · Contacto:       teléfono (opcional)
   Colores y tipografías: css/styles.css → :root
   =====================================================================
 -->
@@ -75,9 +71,8 @@
     <section id="inicio" class="page hero" aria-labelledby="inicio-title">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="mono-label reveal">Bioquímica · Ciencia · Curiosidad</p>
-          <!-- PENDIENTE: escribe una frase corta de bienvenida (ej. "Bienvenido/a a mi espacio de ciencia"). Reemplaza todo el <span class="pendiente">…</span> por el texto. -->
-          <p class="hero-welcome reveal"><span class="pendiente">[Pendiente: frase de bienvenida]</span></p>
+          <p class="mono-label reveal">Biotecnología · Ciencia · Curiosidad</p>
+          <p class="hero-welcome reveal">Toda solución grande está formada de varias pequeñas.</p>
           <h1 id="inicio-title" class="editorial-title reveal" tabindex="-1">Marjorie Pineda</h1>
           <p class="hero-subtitle reveal">Descubriendo mi mundo en <em>micro</em> y <em>macro</em>.</p>
 
@@ -142,14 +137,11 @@
         <div class="profile-grid">
           <!-- Ficha tipo etiqueta de muestra -->
           <aside class="specimen reveal" aria-label="Ficha personal">
-            <!-- PENDIENTE: foto de laboratorio. Guarda la imagen en assets/ y reemplaza el <span> por: <img src="assets/NOMBRE.jpg" alt="Descripción de la foto" loading="lazy"> -->
-            <div class="specimen-photo"><span class="pendiente">[Pendiente: foto de laboratorio]</span></div>
+            <div class="specimen-photo specimen-photo--img"><img src="assets/lab.jpg" alt="Marjorie Pineda observando una muestra en el microscopio del laboratorio" width="1280" height="960" loading="lazy"></div>
             <dl class="specimen-data">
               <div><dt>Nombre</dt><dd>Marjorie Pineda</dd></div>
-              <div><dt>Área</dt><dd>Bioquímica</dd></div>
+              <div><dt>Área</dt><dd>Biotecnología</dd></div>
               <div><dt>Enfoque</dt><dd>Investigación · Innovación · Comunicación científica</dd></div>
-              <!-- PENDIENTE: nombre de la universidad o institución donde estudia (ej. "Universidad …"). Reemplaza el <span> por el texto. -->
-              <div><dt>Institución</dt><dd><span class="pendiente">[Pendiente]</span></dd></div>
             </dl>
           </aside>
 
@@ -174,13 +166,10 @@
           <h3 class="sub-title reveal">Mi presentación</h3>
           <div class="media-grid">
             <div class="video-wrap reveal">
-              <!-- PENDIENTE: guarda el video CV como assets/video-cv.mp4 (formato MP4). No hay que cambiar nada aquí. -->
-              <video class="video" controls preload="none" playsinline>
-                <source src="assets/video-cv.mp4" type="video/mp4">
+              <video class="video" controls preload="metadata" playsinline>
+                <source src="assets/VideoCV.mp4" type="video/mp4">
                 Tu navegador no puede reproducir este video.
               </video>
-              <!-- PENDIENTE: cuando el video esté en assets/video-cv.mp4, borra esta línea <p class="note">…</p> completa. -->
-              <p class="note"><span class="pendiente">[Pendiente: video CV]</span></p>
             </div>
             <div class="cv-card reveal">
               <p class="mono-label">Documento</p>
@@ -195,20 +184,14 @@
         <div class="block protocol reveal">
           <div class="protocol-head">
             <p class="mono-label">Manifiesto · Protocolo personal</p>
-            <!-- PENDIENTE: título del manifiesto (una frase que resuma su filosofía). Reemplaza el <span> por el texto. -->
-            <h3 class="sub-title"><span class="pendiente">[Pendiente: título del manifiesto]</span></h3>
+            <h3 class="sub-title">Explorar con propósito</h3>
           </div>
           <ol class="protocol-steps">
-            <!-- PENDIENTE (manifiesto 1/5): completa la frase "Creo que…" con su creencia principal. Reemplaza el <span> por el texto. -->
-            <li><span class="step">Paso 01</span><p>Creo que… <span class="pendiente">[Pendiente]</span></p></li>
-            <!-- PENDIENTE (manifiesto 2/5): completa "Me mueve…" con lo que la motiva. Reemplaza el <span> por el texto. -->
-            <li><span class="step">Paso 02</span><p>Me mueve… <span class="pendiente">[Pendiente]</span></p></li>
-            <!-- PENDIENTE (manifiesto 3/5): completa "Valoro…" con lo que más valora. Reemplaza el <span> por el texto. -->
-            <li><span class="step">Paso 03</span><p>Valoro… <span class="pendiente">[Pendiente]</span></p></li>
-            <!-- PENDIENTE (manifiesto 4/5): completa "Prometo…" con su compromiso. Reemplaza el <span> por el texto. -->
-            <li><span class="step">Paso 04</span><p>Prometo… <span class="pendiente">[Pendiente]</span></p></li>
-            <!-- PENDIENTE (manifiesto 5/5): completa "Deseo aportar al mundo…" con lo que quiere aportar. Reemplaza el <span> por el texto. -->
-            <li><span class="step">Paso 05</span><p>Deseo aportar al mundo… <span class="pendiente">[Pendiente]</span></p></li>
+            <li><span class="step"><span class="step-num">01</span>Creencia</span><p><strong class="step-lead">Creo que</strong> comprender el mundo comienza por atrevernos a hacer preguntas, incluso sobre lo que parece obvio.</p></li>
+            <li><span class="step"><span class="step-num">02</span>Motivación</span><p><strong class="step-lead">Me mueve</strong> la curiosidad por lo desconocido y la posibilidad de convertir una pregunta en un descubrimiento.</p></li>
+            <li><span class="step"><span class="step-num">03</span>Valores</span><p><strong class="step-lead">Valoro</strong> la evidencia, la creatividad y la honestidad de reconocer lo que aún no sé.</p></li>
+            <li><span class="step"><span class="step-num">04</span>Compromiso</span><p><strong class="step-lead">Prometo</strong> aprender con rigor, experimentar con responsabilidad y revisar mis ideas cuando los hechos me inviten a hacerlo.</p></li>
+            <li><span class="step"><span class="step-num">05</span>Propósito</span><p><strong class="step-lead">Deseo aportar al mundo</strong> con conocimiento que pueda compartirse e ideas que ayuden a resolver problemas y despierten en otras personas las ganas de explorar.</p></li>
           </ol>
         </div>
 
@@ -220,25 +203,22 @@
             <div class="reagent" role="listitem">
               <span class="reagent-role">Principal</span>
               <!-- PENDIENTE: nombre del arquetipo PRINCIPAL de su marca (ej. El Sabio, El Explorador, El Creador…). Reemplaza el <span> por el nombre. -->
-              <h4 class="reagent-name"><span class="pendiente">[Pendiente: arquetipo]</span></h4>
-              <!-- PENDIENTE: 1 o 2 frases explicando por qué ese arquetipo principal la representa. -->
-              <p class="reagent-desc"><span class="pendiente">[Pendiente: descripción]</span></p>
+              <h4 class="reagent-name">Aventurero</h4>
+              <p class="reagent-desc">Exploro lo desconocido, busco nuevas experiencias y aprendo haciendo.</p>
             </div>
             <span class="op" aria-hidden="true">+</span>
             <div class="reagent" role="listitem">
               <span class="reagent-role">Secundario</span>
               <!-- PENDIENTE: nombre del arquetipo SECUNDARIO de su marca. Reemplaza el <span> por el nombre. -->
-              <h4 class="reagent-name"><span class="pendiente">[Pendiente: arquetipo]</span></h4>
-              <!-- PENDIENTE: 1 o 2 frases explicando el arquetipo secundario. -->
-              <p class="reagent-desc"><span class="pendiente">[Pendiente: descripción]</span></p>
+              <h4 class="reagent-name">Sabio</h4>
+              <p class="reagent-desc">Mi curiosidad me impulsa a estudiar ciencia y comprender cómo funciona el mundo.</p>
             </div>
             <span class="op" aria-hidden="true">+</span>
             <div class="reagent" role="listitem">
               <span class="reagent-role">Complementario</span>
               <!-- PENDIENTE: nombre del arquetipo COMPLEMENTARIO de su marca. Reemplaza el <span> por el nombre. -->
-              <h4 class="reagent-name"><span class="pendiente">[Pendiente: arquetipo]</span></h4>
-              <!-- PENDIENTE: 1 o 2 frases explicando el arquetipo complementario. -->
-              <p class="reagent-desc"><span class="pendiente">[Pendiente: descripción]</span></p>
+              <h4 class="reagent-name">Creador</h4>
+              <p class="reagent-desc">Experimento y transformo lo que aprendo en ideas y soluciones originales.</p>
             </div>
             <span class="op" aria-hidden="true">→</span>
             <div class="product" role="listitem">Marjorie</div>
@@ -346,6 +326,8 @@
             <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
             <p class="paper-label">Resumen</p>
             <p class="paper-abstract">Este estudio evaluó el efecto de campos eléctricos sobre el crecimiento, el antagonismo y la actividad celulolítica de dos especies de <em>Stemphylium</em>. Se observaron cambios en el crecimiento y la organización micelial; no se detectó actividad celulolítica concluyente.</p>
+            <!-- PENDIENTE: describe tu rol en este proyecto (ej. "Investigadora principal: diseño experimental y análisis de resultados"). -->
+            <p class="paper-role"><strong>Mi rol:</strong> <span class="pendiente">[Pendiente: rol en el proyecto]</span></p>
             <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas (ej. Stemphylium, campos eléctricos, micología). -->
             <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
             <div class="paper-actions">
@@ -364,6 +346,8 @@
               <!-- PENDIENTE: estado y fechas de este proyecto. Las fotos de "Ver imágenes" van en js/main.js → projectGalleries.lipidos -->
               <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
               <p class="paper-abstract">Un estudio sobre bacterias del suelo y su capacidad para degradar lípidos presentes en aceites usados.</p>
+              <!-- PENDIENTE: describe tu rol en este proyecto (ej. "Investigadora principal: diseño experimental y análisis de resultados"). -->
+              <p class="paper-role"><strong>Mi rol:</strong> <span class="pendiente">[Pendiente: rol en el proyecto]</span></p>
               <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas. -->
               <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
             </div>
@@ -378,6 +362,8 @@
               <!-- PENDIENTE: estado y fechas de este proyecto. Las fotos de "Ver imágenes" van en js/main.js → projectGalleries.jabones -->
               <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
               <p class="paper-abstract">Proyecto enfocado en alternativas de limpieza más amigables con el ambiente.</p>
+              <!-- PENDIENTE: describe tu rol en este proyecto (ej. "Investigadora principal: diseño experimental y análisis de resultados"). -->
+              <p class="paper-role"><strong>Mi rol:</strong> <span class="pendiente">[Pendiente: rol en el proyecto]</span></p>
               <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas. -->
               <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
             </div>
@@ -423,12 +409,11 @@
             <dl class="contact-list">
               <div>
                 <dt>Correo</dt>
-                <dd><a href="mailto:sprellets@gmail.com">sprellets@gmail.com</a></dd>
+                <dd><a href="mailto:yulianitapg2006@gmail.com">yulianitapg2006@gmail.com</a></dd>
               </div>
               <div>
                 <dt>Teléfono</dt>
-                <!-- PENDIENTE (opcional): número de teléfono, ej. <a href="tel:+50200000000">+502 0000 0000</a>. Si no se quiere mostrar, borra todo el bloque <div> de Teléfono. -->
-                <dd><span class="pendiente">[Pendiente: opcional]</span></dd>
+                <dd><a href="tel:+50254102349">+502 5410 2349</a></dd>
               </div>
               <div>
                 <dt>Redes</dt>

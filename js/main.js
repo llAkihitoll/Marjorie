@@ -21,7 +21,7 @@
   // Envío del formulario de contacto (servicio gratuito FormSubmit).
   // La primera vez que alguien escriba, FormSubmit enviará un correo
   // de activación a esta dirección: hay que confirmarlo una sola vez.
-  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/sprellets@gmail.com';
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/yulianitapg2006@gmail.com';
 
   const SITE_NAME = 'Marjorie Pineda';
 

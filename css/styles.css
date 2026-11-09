@@ -1,5 +1,5 @@
 /* =========================================================
-   Portafolio de bioquímica — estilos
+   Portafolio de biotecnología — estilos
    CSS propio, mobile-first. Colores y tipografías centralizados
    en :root para poder cambiarlos fácilmente.
    ========================================================= */
@@ -350,6 +350,8 @@ html:not(.js) .main-nav {
   background-image: var(--hex-pattern);
   text-align: center;
 }
+.specimen-photo--img { padding: 0; }
+.specimen-photo--img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .specimen-data { padding: .5rem 1.25rem 1rem; }
 .specimen-data div {
   display: grid; grid-template-columns: 6.5rem 1fr; gap: .75rem;
@@ -404,12 +406,15 @@ html:not(.js) .main-nav {
 .protocol .pendiente { color: #ffffffb3; }
 .protocol-steps { display: grid; gap: 0; counter-reset: step; }
 .protocol-steps li {
-  display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline;
-  padding: 1rem 0;
+  display: grid; grid-template-columns: 6.5rem 1fr; gap: 1.25rem; align-items: start;
+  padding: 1.25rem 0;
   border-top: 1px solid #ffffff26;
 }
-.step { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--chip); }
-.protocol-steps p { line-height: 1.7; }
+.protocol-steps li:first-child { border-top: 0; }
+.step { display: grid; gap: .2rem; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: color-mix(in srgb, var(--chip) 75%, transparent); }
+.step-num { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; letter-spacing: 0; line-height: 1; color: var(--chip); }
+.protocol-steps p { font-size: 1.02rem; line-height: 1.7; color: #ffffffd9; text-wrap: pretty; }
+.step-lead { font-family: var(--font-serif); font-style: italic; font-weight: 600; font-size: 1.12em; color: var(--chip); }
 @media (min-width: 900px) { .protocol { grid-template-columns: .8fr 1.2fr; gap: 3rem; } }
 
 /* Arquetipos como fórmula: A + B + C → Marjorie */
@@ -503,6 +508,12 @@ html:not(.js) .main-nav {
 .paper-meta { margin-top: .5rem; font-size: .82rem; color: var(--muted); }
 .paper-label { margin-top: 1.25rem; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .paper-abstract { margin-top: .5rem; line-height: 1.75; color: var(--text); }
+.paper-role {
+  margin-top: 1rem; padding: .6rem .85rem;
+  border-left: 3px solid var(--accent, currentColor);
+  background: var(--surface-alt);
+  font-size: .88rem; color: var(--ink);
+}
 .paper-keywords { margin-top: 1rem; font-size: .85rem; color: var(--muted); }
 .paper-keywords strong { color: var(--ink); }
 .paper-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; }
