@@ -13,9 +13,20 @@
   // La clave coincide con data-gallery="…" en index.html.
   // Ejemplo: { src: 'assets/hongos/placa-1.jpg', desc: 'Crecimiento a las 48 h' }
   const projectGalleries = {
-    hongos:  [],
-    lipidos: [],
-    jabones: [],
+    hongos: [
+      { src: 'assets/proyectos/hongos-placas.jpg', desc: 'Cultivos de S. hemerocallidis (arriba) y S. badalingensis (abajo) en cajas Petri.' },
+      { src: 'assets/proyectos/hongos-microscopia.jpg', desc: 'Observación al microscopio de las estructuras y la distribución de esporas de ambas especies.' },
+      { src: 'assets/proyectos/hongos-rojo-congo.jpg', desc: 'Placas con carboximetilcelulosa y tinción con rojo Congo para buscar señales de degradación.' },
+    ],
+    microalgas: [
+      { src: 'assets/proyectos/microalgas-montaje.jpg', desc: 'Cultivo de Nannochloropsis oculata con aireación continua.' },
+      { src: 'assets/proyectos/microalgas-grafica-cobre.png', desc: 'Concentración de cobre antes y después del tratamiento con microalgas en la proporción 1:1.5.' },
+    ],
+    ecoli: [
+      { src: 'assets/proyectos/ecoli-cabina.jpg', desc: 'Preparación de las muestras de E. coli en la cabina de bioseguridad.' },
+      { src: 'assets/proyectos/ecoli-clinostato.jpg', desc: 'Clinostato utilizado para simular microgravedad.' },
+      { src: 'assets/proyectos/ecoli-grafica-crecimiento.png', desc: 'Crecimiento bacteriano en microgravedad simulada obtenido con el modelo logístico.' },
+    ],
   };
 
   // Envío del formulario de contacto (servicio gratuito FormSubmit).

@@ -29,8 +29,7 @@
   CONTENIDO PENDIENTE (marcado en la página con [Pendiente: …])
   Busca "pendiente" en este archivo para encontrar cada hueco.
     · Blog:           fecha de cada entrada (opcional)
-    · Portafolio:     rol, estado, fechas, palabras clave e imágenes de cada proyecto
-                      (las imágenes se agregan en js/main.js → projectGalleries)
+    · Portafolio:     fecha del proyecto P-03 (opcional)
   Colores y tipografías: css/styles.css → :root
   =====================================================================
 -->
@@ -628,78 +627,181 @@
         <header class="section-header">
           <p class="mono-label reveal">03 · Portafolio</p>
           <h2 id="portafolio-title" class="section-title reveal" tabindex="-1">¿Ya viste mis trabajos?</h2>
+          <p class="section-intro reveal">Proyectos de investigación en los que he participado, contados como fueron: qué preguntamos, qué hicimos, qué encontramos y qué nos faltó por saber.</p>
         </header>
 
-        <!-- Proyecto destacado, con formato de artículo científico -->
-        <article class="paper paper--featured reveal">
-          <div class="paper-figure">
-            <svg class="paper-plate" viewBox="0 0 200 200" aria-hidden="true">
-              <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="3"/>
-              <circle cx="100" cy="100" r="78" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/>
-              <g fill="currentColor" opacity=".55">
-                <circle cx="75" cy="80" r="18"/><circle cx="128" cy="92" r="12"/><circle cx="96" cy="132" r="15"/>
-                <circle cx="135" cy="135" r="6"/><circle cx="62" cy="122" r="5"/>
-              </g>
-            </svg>
-            <!-- PENDIENTE: imagen principal del proyecto destacado. Reemplaza el <span> (y si quieres también el <svg> de la placa de Petri) por: <img src="assets/NOMBRE.jpg" alt="Descripción" loading="lazy">. Las fotos de la galería "Ver imágenes" van en js/main.js → projectGalleries.hongos -->
-            <span class="pendiente">[Pendiente: imagen del proyecto]</span>
-          </div>
-          <div class="paper-body">
-            <div class="paper-top">
-              <span class="badge">Proyecto destacado</span>
-              <span class="paper-id">P-01</span>
-            </div>
-            <h3 class="paper-title">Hongos bajo electricidad, un nuevo vistazo</h3>
-            <!-- PENDIENTE: estado del proyecto (ej. Finalizado / En curso) y fechas (ej. Feb 2025 — Jun 2025). Reemplaza cada <span> por el texto. -->
-            <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
-            <p class="paper-label">Resumen</p>
-            <p class="paper-abstract">Este estudio evaluó el efecto de campos eléctricos sobre el crecimiento, el antagonismo y la actividad celulolítica de dos especies de <em>Stemphylium</em>. Se observaron cambios en el crecimiento y la organización micelial; no se detectó actividad celulolítica concluyente.</p>
-            <!-- PENDIENTE: describe tu rol en este proyecto (ej. "Investigadora principal: diseño experimental y análisis de resultados"). -->
-            <p class="paper-role"><strong>Mi rol:</strong> <span class="pendiente">[Pendiente: rol en el proyecto]</span></p>
-            <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas (ej. Stemphylium, campos eléctricos, micología). -->
-            <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
-            <div class="paper-actions">
-              <button type="button" class="link-btn" data-gallery="hongos">Ver imágenes</button>
-            </div>
-          </div>
-        </article>
+        <!-- Cada proyecto tiene formato de artículo científico.
+             Las fotos de "Ver imágenes" se configuran en js/main.js → projectGalleries -->
+        <div class="paper-stack">
 
-        <!-- Otros proyectos, en formato de lista de publicaciones -->
-        <h3 class="mini-title reveal">Otros proyectos</h3>
-        <ol class="paper-list">
-          <li class="paper reveal">
-            <span class="paper-id">P-02</span>
+          <!-- ---------- Trabajo 1 ---------- -->
+          <article class="paper paper--featured reveal" id="proyecto-1" aria-labelledby="proyecto-1-title">
+            <button type="button" class="paper-figure paper-cover" data-gallery="hongos" aria-label="Ver imágenes del proyecto sobre Stemphylium">
+              <img src="assets/proyectos/hongos-placas.jpg" alt="" width="385" height="482" loading="lazy">
+              <span class="paper-cover-chip">3 imágenes</span>
+            </button>
             <div class="paper-body">
-              <h3 class="paper-title">Ensayo lipídico sobre las tierras</h3>
-              <!-- PENDIENTE: estado y fechas de este proyecto. Las fotos de "Ver imágenes" van en js/main.js → projectGalleries.lipidos -->
-              <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
-              <p class="paper-abstract">Un estudio sobre bacterias del suelo y su capacidad para degradar lípidos presentes en aceites usados.</p>
-              <!-- PENDIENTE: describe tu rol en este proyecto (ej. "Investigadora principal: diseño experimental y análisis de resultados"). -->
-              <p class="paper-role"><strong>Mi rol:</strong> <span class="pendiente">[Pendiente: rol en el proyecto]</span></p>
-              <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas. -->
-              <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
+              <div class="paper-top">
+                <span class="badge">Micología</span>
+                <span class="paper-id">P-01 · Jun 2026</span>
+              </div>
+              <h3 class="paper-title" id="proyecto-1-title">Campos eléctricos y crecimiento fúngico en <em>Stemphylium</em></h3>
+              <p class="paper-meta">Proyecto experimental de Micología · Universidad del Valle de Guatemala · Junio de 2026</p>
+              <p class="paper-role"><strong>Mi participación:</strong> integrante del equipo de investigación y coautora del informe.</p>
+
+              <p class="paper-label">¿En qué consistió?</p>
+              <p class="paper-abstract">Investigamos cómo respondían dos especies de hongos, <em>Stemphylium badalingensis</em> y <em>Stemphylium hemerocallidis</em>, a la exposición a un campo eléctrico. Evaluamos tres aspectos: su crecimiento, la interacción entre ambas especies al compartir un medio de cultivo y su capacidad para degradar un derivado de la celulosa. Para identificar diferencias, comparamos los cultivos expuestos con controles sin exposición eléctrica.</p>
+
+              <dl class="paper-stats" aria-label="Resultado destacado">
+                <div><dt>Con campo eléctrico</dt><dd>9.5 × 7 cm</dd></div>
+                <div><dt>Control</dt><dd>7 × 7 cm</dd></div>
+              </dl>
+              <p class="paper-stats-note">Expansión de <em>S.&nbsp;hemerocallidis</em> en la fase con recipientes de mayor tamaño.</p>
+
+              <details class="paper-details">
+                <summary>Leer el proyecto completo</summary>
+                <div class="paper-details-body">
+                  <h4>¿Qué hicimos?</h4>
+                  <ul class="paper-steps">
+                    <li><strong>Preparamos y cultivamos las cepas.</strong> Trabajamos con medios de cultivo para observar el crecimiento individual de los hongos, su interacción y posibles señales de actividad degradadora de celulosa.</li>
+                    <li><strong>Construimos un sistema de exposición eléctrica.</strong> Utilizamos placas metálicas conectadas a una fuente de voltaje y realizamos ensayos en cajas Petri y, posteriormente, en recipientes de mayor tamaño. También registramos condiciones ambientales mediante un sistema con Arduino.</li>
+                    <li><strong>Comparamos el desarrollo de los cultivos.</strong> Observamos la expansión y apariencia de las colonias, y examinamos al microscopio sus estructuras y la distribución de esporas.</li>
+                    <li><strong>Evaluamos la interacción y la actividad celulolítica.</strong> Cultivamos ambas especies en placas compartidas para observar su encuentro. Además, utilizamos medios con carboximetilcelulosa y tinción con rojo Congo para buscar señales de degradación.</li>
+                  </ul>
+
+                  <h4>¿Qué encontramos?</h4>
+                  <p>En las condiciones evaluadas, <em>S.&nbsp;hemerocallidis</em> presentó mayor expansión bajo exposición eléctrica. En la fase realizada en recipientes de mayor tamaño, registramos 9.5 × 7 cm frente a 7 × 7 cm en el control.</p>
+                  <p>En <em>S.&nbsp;badalingensis</em>, las diferencias de crecimiento fueron menores. También observamos cambios en la organización del micelio y la agrupación de esporas, así como una línea de delimitación entre ambas especies después de la exposición.</p>
+                  <p>La evaluación de degradación de celulosa no produjo resultados concluyentes. Por ello, el ensayo no permitió confirmar ni descartar esa capacidad en las cepas estudiadas.</p>
+
+                  <h4>¿Qué límites tuvo el estudio?</h4>
+                  <p>El número de réplicas fue reducido y parte de la comparación se basó en observaciones cualitativas. Los resultados deben interpretarse como exploratorios y requieren nuevos ensayos, mediciones sistemáticas y análisis estadístico para fortalecer las conclusiones.</p>
+
+                  <h4>Reflexión sobre el proyecto</h4>
+                  <p>Este trabajo conecta mi interés por la microbiología con la exploración de fenómenos físicos. También muestra la importancia de registrar cuidadosamente las observaciones, comparar con controles y reconocer cuándo la evidencia todavía es insuficiente para responder una pregunta.</p>
+                </div>
+              </details>
+
+              <p class="paper-keywords"><strong>Áreas del proyecto:</strong> micología, cultivo de hongos, microscopía, bioelectricidad y análisis experimental.</p>
+              <div class="paper-actions">
+                <button type="button" class="link-btn" data-gallery="hongos">Ver imágenes</button>
+              </div>
             </div>
-            <div class="paper-actions">
-              <button type="button" class="link-btn" data-gallery="lipidos">Ver imágenes</button>
-            </div>
-          </li>
-          <li class="paper reveal">
-            <span class="paper-id">P-03</span>
+          </article>
+
+          <!-- ---------- Trabajo 2 ---------- -->
+          <article class="paper paper--featured paper--reverse reveal" id="proyecto-2" aria-labelledby="proyecto-2-title">
+            <button type="button" class="paper-figure paper-cover paper-cover--fit" data-gallery="microalgas" aria-label="Ver imágenes del proyecto sobre microalgas">
+              <img src="assets/proyectos/microalgas-montaje.jpg" alt="" width="697" height="355" loading="lazy">
+              <span class="paper-cover-chip">2 imágenes</span>
+            </button>
             <div class="paper-body">
-              <h3 class="paper-title">Uso de jabones no dañinos al ambiente</h3>
-              <!-- PENDIENTE: estado y fechas de este proyecto. Las fotos de "Ver imágenes" van en js/main.js → projectGalleries.jabones -->
-              <p class="paper-meta"><span class="pendiente">[Pendiente: estado]</span> · <span class="pendiente">[Pendiente: fechas]</span></p>
-              <p class="paper-abstract">Proyecto enfocado en alternativas de limpieza más amigables con el ambiente.</p>
-              <!-- PENDIENTE: describe tu rol en este proyecto (ej. "Investigadora principal: diseño experimental y análisis de resultados"). -->
-              <p class="paper-role"><strong>Mi rol:</strong> <span class="pendiente">[Pendiente: rol en el proyecto]</span></p>
-              <!-- PENDIENTE: 3 a 5 palabras clave separadas por comas. -->
-              <p class="paper-keywords"><strong>Palabras clave:</strong> <span class="pendiente">[Pendiente]</span></p>
+              <div class="paper-top">
+                <span class="badge">Microbiología</span>
+                <span class="paper-id">P-02 · Nov 2025</span>
+              </div>
+              <h3 class="paper-title" id="proyecto-2-title">Microalgas para la remoción de cobre en agua</h3>
+              <p class="paper-meta">Proyecto experimental de Microbiología · Universidad del Valle de Guatemala · Noviembre de 2025</p>
+              <p class="paper-role"><strong>Mi participación:</strong> integrante del equipo de investigación y coautora del informe.</p>
+
+              <p class="paper-label">¿En qué consistió?</p>
+              <p class="paper-abstract">Evaluamos el potencial de la microalga <em>Nannochloropsis oculata</em> para disminuir la concentración de cobre en muestras de agua preparadas experimentalmente. El propósito fue explorar una posible aplicación en biorremediación y comparar los resultados al utilizar dos proporciones distintas de solución de cobre y cultivo de microalgas.</p>
+
+              <dl class="paper-stats" aria-label="Resultado destacado">
+                <div><dt>Proporción 1:1</dt><dd>80.28–85.45 %</dd></div>
+                <div><dt>Proporción 1:1.5</dt><dd>81.55–94.25 %</dd></div>
+              </dl>
+              <p class="paper-stats-note">Reducción de la concentración de cobre registrada en el informe.</p>
+
+              <details class="paper-details">
+                <summary>Leer el proyecto completo</summary>
+                <div class="paper-details-body">
+                  <h4>¿Qué hicimos?</h4>
+                  <ul class="paper-steps">
+                    <li><strong>Cultivamos las microalgas.</strong> Utilizamos agua del Estanque de Colecciones de la UVG como medio de cultivo. Mantuvimos los cultivos durante siete días a 24 °C, con aireación continua.</li>
+                    <li><strong>Preparamos los tratamientos.</strong> Elaboramos soluciones con concentraciones objetivo de cobre de 2, 5, 8 y 10 ppm. Después, las combinamos con el cultivo de microalgas en proporciones de 1:1 y 1:1.5, correspondientes al volumen de solución de cobre y suspensión algal.</li>
+                    <li><strong>Realizamos la exposición.</strong> Mantuvimos las mezclas durante siete días adicionales para evaluar los cambios en la concentración de cobre.</li>
+                    <li><strong>Preparamos y analizamos las muestras.</strong> Filtramos las muestras posteriores al tratamiento para separar la biomasa y las partículas. Utilizamos espectrofotometría de absorción atómica para comparar las concentraciones iniciales y finales y calcular los porcentajes de reducción reportados.</li>
+                  </ul>
+
+                  <h4>¿Qué encontramos?</h4>
+                  <p>El informe registró disminuciones de la concentración de cobre en ambas proporciones: 1:1 (80.28 %–85.45 % de reducción) y 1:1.5 (81.55 %–94.25 % de reducción). La proporción 1:1.5 presentó los mayores porcentajes de reducción, con un máximo reportado de 94.25 % en la muestra de menor concentración inicial de cobre.</p>
+                  <p>Estos resultados ofrecen un punto de partida para continuar investigando el sistema y mejorar su evaluación experimental.</p>
+
+                  <h4>¿Qué límites tuvo el estudio?</h4>
+                  <p>La iluminación no se controló de forma rigurosa y las mezclas permanecieron sin agitación durante el tratamiento. Además, la composición del agua natural pudo influir en los resultados.</p>
+                  <p>La filtración también pudo retirar cobre asociado a partículas o precipitados. Por ello, los datos no permiten atribuir toda la reducción observada exclusivamente a la acción de las microalgas. Para distinguir estos efectos, sería necesario incorporar controles sin microalgas sometidos al mismo procedimiento.</p>
+
+                  <h4>Reflexión sobre el proyecto</h4>
+                  <p>Este trabajo conecta mi interés por los microorganismos con la búsqueda de soluciones para problemas ambientales. También resalta la importancia de acompañar un resultado prometedor con una revisión de los controles, las mediciones y las limitaciones del procedimiento.</p>
+                  <p>Mi interés es seguir explorando cómo diseñar investigaciones que permitan evaluar estas posibilidades con mayor precisión.</p>
+                </div>
+              </details>
+
+              <p class="paper-keywords"><strong>Áreas del proyecto:</strong> microbiología ambiental, cultivo de microalgas, biorremediación, análisis instrumental e interpretación de datos.</p>
+              <div class="paper-actions">
+                <button type="button" class="link-btn" data-gallery="microalgas">Ver imágenes</button>
+              </div>
             </div>
-            <div class="paper-actions">
-              <button type="button" class="link-btn" data-gallery="jabones">Ver imágenes</button>
+          </article>
+
+          <!-- ---------- Trabajo 3 ---------- -->
+          <article class="paper paper--featured reveal" id="proyecto-3" aria-labelledby="proyecto-3-title">
+            <button type="button" class="paper-figure paper-cover" data-gallery="ecoli" aria-label="Ver imágenes del proyecto sobre E. coli">
+              <img src="assets/proyectos/ecoli-cabina.jpg" alt="" width="472" height="555" loading="lazy">
+              <span class="paper-cover-chip">3 imágenes</span>
+            </button>
+            <div class="paper-body">
+              <div class="paper-top">
+                <span class="badge">Modelación</span>
+                <span class="paper-id">P-03</span>
+              </div>
+              <h3 class="paper-title" id="proyecto-3-title">Modelación del crecimiento de <em>E.&nbsp;coli</em> en microgravedad simulada</h3>
+              <p class="paper-meta">Proyecto experimental y de modelación matemática · Universidad del Valle de Guatemala</p>
+              <p class="paper-role"><strong>Mi participación:</strong> integrante del equipo de investigación y coautora del informe.</p>
+
+              <p class="paper-label">¿En qué consistió?</p>
+              <p class="paper-abstract">Investigamos el crecimiento de <em>Escherichia coli</em> bajo dos condiciones: microgravedad simulada mediante un clinostato y un cultivo control mantenido en una incubadora con agitación. A partir de las mediciones, desarrollamos un modelo logístico basado en ecuaciones diferenciales para describir el crecimiento bacteriano y evaluar qué tan bien representaba los resultados experimentales.</p>
+
+              <dl class="paper-stats" aria-label="Resultado destacado">
+                <div><dt>DO máx. microgravedad</dt><dd>0.276</dd></div>
+                <div><dt>DO máx. control</dt><dd>0.757</dd></div>
+                <div><dt>Ajuste del modelo (R²)</dt><dd>0.958</dd></div>
+              </dl>
+              <p class="paper-stats-note">Densidad óptica máxima a 600 nm y ajuste del modelo logístico en microgravedad simulada.</p>
+
+              <details class="paper-details">
+                <summary>Leer el proyecto completo</summary>
+                <div class="paper-details-body">
+                  <h4>¿Qué hicimos?</h4>
+                  <ul class="paper-steps">
+                    <li>Preparamos cultivos de una cepa no patógena de <em>E.&nbsp;coli</em> en medio líquido LB y distribuimos las muestras en seis tubos, tres para cada condición.</li>
+                    <li>Durante 2.5 horas, realizamos mediciones de densidad óptica a 600 nm cada 30 minutos. Estas lecturas funcionaron como un indicador indirecto de la concentración celular y nos permitieron construir las curvas de crecimiento.</li>
+                    <li>Después, estimamos los parámetros del modelo logístico, resolvimos la ecuación diferencial y comparamos sus curvas teóricas con las mediciones. Evaluamos el ajuste mediante el coeficiente de determinación R² y el indicador de error RMSE.</li>
+                  </ul>
+
+                  <h4>¿Qué encontramos?</h4>
+                  <p>En este experimento, el cultivo bajo microgravedad simulada alcanzó una densidad óptica máxima aproximada de 0.276, mientras que el control llegó a 0.757.</p>
+                  <p>El modelo presentó un mejor ajuste para la condición de microgravedad simulada, con un R² de 0.958. Para el control, el valor fue de 0.138, debido a que las últimas mediciones mostraron una disminución que el modelo logístico no logró representar adecuadamente.</p>
+                  <p>Estos resultados permitieron identificar tanto la utilidad del modelo como sus límites al describir los cultivos estudiados.</p>
+
+                  <h4>Alcances y limitaciones</h4>
+                  <p>La densidad óptica puede verse afectada por la sedimentación, la formación de agregados y la homogenización de las muestras. Además, las diferencias entre los sistemas de cultivo pudieron influir en los resultados.</p>
+                  <p>Por ello, las observaciones corresponden al montaje evaluado. Serían necesarios más ensayos para distinguir los factores involucrados y comprobar el desempeño del modelo con nuevos datos.</p>
+
+                  <h4>Reflexión sobre el proyecto</h4>
+                  <p>Este trabajo conecta mi interés por la microbiología con las herramientas matemáticas que permiten interpretar procesos biológicos. También resalta la importancia de revisar los supuestos de un modelo y reconocer cuándo necesita ajustes para explicar lo observado.</p>
+                </div>
+              </details>
+
+              <p class="paper-keywords"><strong>Áreas del proyecto:</strong> microbiología experimental, microgravedad simulada, ecuaciones diferenciales y análisis de datos.</p>
+              <div class="paper-actions">
+                <button type="button" class="link-btn" data-gallery="ecoli">Ver imágenes</button>
+              </div>
             </div>
-          </li>
-        </ol>
+          </article>
+
+        </div>
       </div>
     </section>
 
