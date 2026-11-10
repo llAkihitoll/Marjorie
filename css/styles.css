@@ -477,17 +477,138 @@ html:not(.js) .main-nav {
   vertical-align: middle;
   color: var(--lab);
 }
+/* Notas al margen como post-its */
 .margin-note {
-  margin-block: 2rem;
-  padding: 1rem 1.25rem;
-  background: #fff6c9;
-  border-radius: .2rem;
-  box-shadow: 0 6px 16px #0000001a;
-  transform: rotate(-1deg);
-  line-height: 1.6;
-  max-width: 26rem;
+  --note: #fff27a;       /* color del papel */
+  --note-edge: #f5e04f;  /* franja adhesiva */
+  --note-ink: #4a3d10;   /* color del texto */
+  position: relative;
+  width: min(100%, 17rem);
+  min-height: 15rem;
+  margin: 2.5rem 1rem 2rem auto;
+  padding: 2.4rem 1.4rem 1.8rem;
+  display: flex; flex-direction: column; justify-content: center;
+  background:
+    linear-gradient(to bottom, var(--note-edge) 0 1.6rem, transparent 1.6rem 100%),
+    linear-gradient(165deg, color-mix(in srgb, var(--note) 70%, #fff) 0%, var(--note) 45%, color-mix(in srgb, var(--note) 88%, #000) 100%);
+  border-radius: 2px 2px 3.5rem 2px / 2px 2px .5rem 2px; /* esquina inferior derecha levantada */
+  box-shadow:
+    0 1px 1px #0000000f,
+    0 3px 6px -2px #00000026,
+    10px 14px 16px -10px #00000059;
+  color: var(--note-ink);
+  transform: rotate(-2.5deg);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
 }
-.margin-note .mono-label { margin-bottom: .35rem; color: #8a6a12; }
+.margin-note:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+  box-shadow: 0 1px 1px #0000000f, 0 8px 14px -4px #00000026, 14px 22px 22px -12px #00000059;
+}
+/* Brillo en la esquina doblada */
+.margin-note::after {
+  content: "";
+  position: absolute; right: 0; bottom: 0;
+  width: 4.5rem; height: 1.6rem;
+  border-bottom-right-radius: inherit;
+  background: linear-gradient(160deg, transparent 40%, #ffffff66 100%);
+  pointer-events: none;
+}
+.margin-note .mono-label {
+  position: absolute; top: .45rem; left: 1.4rem;
+  margin: 0;
+  font-size: .62rem; letter-spacing: .1em;
+  color: color-mix(in srgb, var(--note-ink) 75%, transparent);
+}
+.margin-note p {
+  font-family: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  font-size: 1.65rem; font-weight: 600;
+  line-height: 1.15;
+  text-wrap: pretty;
+}
+/* Un color distinto por entrada (y una inclinación distinta) */
+.margin-note--pink   { --note: #ffb3cf; --note-edge: #ff9cc0; --note-ink: #5c1a33; transform: rotate(2deg); }
+.margin-note--blue   { --note: #a9dcff; --note-edge: #8fd0ff; --note-ink: #123a57; transform: rotate(-1.5deg); }
+.margin-note--green  { --note: #c3f0a0; --note-edge: #addf88; --note-ink: #23431a; transform: rotate(1.5deg); }
+.margin-note--orange { --note: #ffc98a; --note-edge: #ffb767; --note-ink: #573006; transform: rotate(-3deg); }
+.margin-note--lilac  { --note: #dcc8ff; --note-edge: #cbb1ff; --note-ink: #34215c; transform: rotate(2.5deg); }
+.notebook + .notebook { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.notebook-page { align-self: center; font-family: var(--font-mono); font-size: .75rem; color: var(--muted); }
+
+/* Pila de hojas: una entrada visible a la vez (solo con JS) */
+.js .notebook-stack { position: relative; display: grid; }
+.js .notebook-stack > .notebook { grid-area: 1 / 1; align-self: start; margin-top: 0; }
+.js .notebook-stack > .notebook[hidden] { display: none; }
+html.is-page-turning, html.is-page-turning body { overflow-x: clip; }
+
+/* Animación de pasar hoja: la hoja se divide en tiras verticales que giran
+   escalonadas, así el papel se curva (el borde derecho va por delante). */
+.page-curl { position: absolute; z-index: 3; pointer-events: none; transform-style: preserve-3d; }
+.page-curl-shadow {
+  position: absolute; inset: 0;
+  border-radius: .5rem;
+  background: linear-gradient(to right, #0000004d, #0000001a 60%, #00000008);
+}
+.curl-strip { position: absolute; top: 0; transform-origin: left center; transform-style: preserve-3d; will-change: transform; }
+.curl-face, .curl-back {
+  position: absolute; top: 0; bottom: 0; left: 0;
+  width: calc(100% + 1px); /* 1px extra: evita rendijas entre tiras */
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.curl-back {
+  transform: rotateY(180deg);
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 calc(2rem - 1px), var(--paper-line) calc(2rem - 1px) 2rem),
+    var(--surface);
+}
+.curl-face > .notebook {
+  position: absolute; top: 0;
+  margin: 0;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  box-shadow: none;
+}
+/* Capas propias para que cambiar su opacidad no obligue a redibujar la tira */
+.curl-shade, .curl-shine { position: absolute; inset: 0; opacity: 0; will-change: opacity; }
+.curl-shade { background: #000; }
+.curl-shine { background: #fff; }
+.page-curl, .page-curl-shadow { will-change: opacity; }
+.curl-face > .notebook { contain: layout paint; }
+.blog-index a[aria-current] { color: var(--lab); font-weight: 600; }
+.notebook-links {
+  margin-top: 2.5rem; padding: 1.25rem 1.4rem;
+  border-radius: var(--radius);
+  background: var(--surface-alt);
+  line-height: 1.6;
+}
+.notebook-links .mono-label { margin-bottom: .75rem; }
+.notebook-links ul { display: grid; gap: .75rem; font-size: .92rem; color: var(--muted); }
+.notebook-links a { font-weight: 600; color: var(--lab); text-underline-offset: .2em; }
+.notebook-links a:hover { color: var(--ink); }
+
+/* Índice de entradas del blog */
+.blog-index {
+  max-width: 48rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding: 1.4rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.blog-index .mono-label { margin-bottom: .75rem; }
+.blog-index ol { display: grid; }
+.blog-index li + li { border-top: 1px solid var(--border); }
+.blog-index a {
+  display: flex; gap: 1rem; align-items: baseline;
+  padding: .7rem 0;
+  color: var(--ink); text-decoration: none; line-height: 1.4;
+}
+.blog-index a:hover { color: var(--lab); }
+.blog-index-num { flex: none; font-family: var(--font-mono); font-size: .75rem; font-weight: 600; color: var(--accent); }
+
 .notebook-footer {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem;
   margin-top: 3rem; padding-top: 1.5rem;
@@ -688,7 +809,8 @@ html:not(.js) .main-nav {
 /* ---------- Impresión ---------- */
 @media print {
   .site-header, .skip-link, .reading-progress, .back-to-top, .toast, .contact-form, .molecule { display: none !important; }
-  .js .page[hidden] { display: block; }
+  .js .page[hidden], .js .notebook-stack > .notebook[hidden] { display: block; }
+  .js .notebook-stack { display: block; }
   .js .reveal { opacity: 1; transform: none; }
   .section { padding-block: 2rem; }
 }

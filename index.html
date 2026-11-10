@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/PFP.jpeg" fetchpriority="high">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Caveat:wght@500;600&display=swap">
 
   <!-- Marca que hay JS antes de pintar (pestañas y animaciones sin parpadeo) -->
   <script>document.documentElement.classList.add('js')</script>
@@ -28,7 +28,7 @@
   =====================================================================
   CONTENIDO PENDIENTE (marcado en la página con [Pendiente: …])
   Busca "pendiente" en este archivo para encontrar cada hueco.
-    · Blog:           fecha, desarrollo de cada punto, nota al margen y conclusión
+    · Blog:           fecha de cada entrada (opcional)
     · Portafolio:     rol, estado, fechas, palabras clave e imágenes de cada proyecto
                       (las imágenes se agregan en js/main.js → projectGalleries)
   Colores y tipografías: css/styles.css → :root
@@ -233,64 +233,392 @@
         <header class="section-header">
           <p class="mono-label reveal">02 · Blog</p>
           <h2 id="blog-title" class="section-title reveal" tabindex="-1">Dentro de mi mente</h2>
-          <p class="section-intro reveal">Aprendizajes y reflexiones sobre ciencia, biotecnología y exploración.</p>
+          <p class="section-intro reveal">Aprendizajes y reflexiones sobre ciencia, curiosidad y exploración.</p>
         </header>
 
-        <!-- Entrada con aspecto de libreta de laboratorio -->
-        <article class="notebook reveal">
+        <!-- Índice de entradas: cada enlace lleva a su artículo (id="entrada-N") -->
+        <nav class="blog-index reveal" id="blog-indice" aria-label="Entradas del blog">
+          <p class="mono-label">Índice de la bitácora</p>
+          <ol>
+            <li><a href="#entrada-1"><span class="blog-index-num">001</span> 5 formas en que la curiosidad define mi marca personal</a></li>
+            <li><a href="#entrada-2"><span class="blog-index-num">002</span> ¿Por qué quiero estudiar ciencia?</a></li>
+            <li><a href="#entrada-3"><span class="blog-index-num">003</span> Aprender a decir “todavía no lo sé”</a></li>
+            <li><a href="#entrada-4"><span class="blog-index-num">004</span> Mi forma de enfrentar un tema que parece demasiado difícil</a></li>
+            <li><a href="#entrada-5"><span class="blog-index-num">005</span> ¿Qué pasa cuando la ciencia y la creatividad trabajan juntas?</a></li>
+            <li><a href="#entrada-6"><span class="blog-index-num">006</span> Del “¿y si…?” a un proyecto concreto</a></li>
+          </ol>
+        </nav>
+
+        <!-- Cada entrada tiene aspecto de libreta de laboratorio.
+             Para agregar una fecha, añade <span>2 de noviembre de 2026</span> dentro de .notebook-meta.
+             El tiempo de lectura (data-read-time) se calcula solo. -->
+
+        <!-- Pila de hojas: con JS se ve una entrada a la vez y se cambia con animación de pasar hoja -->
+        <div class="notebook-stack" id="notebook-stack">
+
+        <!-- ---------- Entrada 001 ---------- -->
+        <article class="notebook reveal" id="entrada-1" aria-labelledby="entrada-1-title">
           <header class="notebook-header">
             <p class="notebook-meta">
               <span>Entrada n.º 001</span>
-              <!-- PENDIENTE: fecha de publicación del artículo (ej. "2 de noviembre de 2026"). El tiempo de lectura se calcula solo. -->
-              <span><span class="pendiente">[Pendiente: fecha]</span></span>
-              <span id="read-time">— min de lectura</span>
+              <span data-read-time>— min de lectura</span>
             </p>
-            <h3 class="notebook-title">5 formas en que la curiosidad define mi marca personal</h3>
+            <h3 class="notebook-title" id="entrada-1-title">5 formas en que la curiosidad define mi marca personal</h3>
             <ul class="tags tags--sm" aria-label="Etiquetas">
               <li class="tag">Marca personal</li>
               <li class="tag">Curiosidad</li>
             </ul>
           </header>
 
-          <div class="notebook-body" id="article-body">
-            <p class="notebook-lead">Preguntar, entender procesos, conectar ideas, explorar y compartir lo que aprendo.</p>
+          <div class="notebook-body">
+            <p class="notebook-lead">Una pregunta puede ser el comienzo de una investigación, una aventura o una idea que todavía no tiene forma. Para mí, también es el comienzo de mi marca personal.</p>
+            <p>Lo que quiero comunicar nace de mi interés por estudiar ciencia, explorar lo desconocido y crear a partir de lo que aprendo. Me identifico con los arquetipos del Aventurero, el Sabio y el Creador porque encuentro en ellos una misma inquietud: descubrir qué hay más allá y atreverme a hacer algo con ese conocimiento.</p>
+            <p>Estas son cinco formas en que la curiosidad define quién soy y cómo quiero presentarme al mundo.</p>
 
-            <h4><span class="obs">Obs. 1</span> Preguntar</h4>
-            <!-- PENDIENTE (blog, punto 1): desarrolla "Preguntar" en uno o varios párrafos. Para más párrafos, agrega más etiquetas <p>…</p>. -->
-            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+            <h4><span class="obs">Obs. 1</span> Me impulsa a aprender con intención</h4>
+            <p>Cuando algo despierta mi curiosidad, quiero comprender sus causas, sus conexiones y sus posibilidades. Una explicación puede convertirse en el punto de partida para seguir leyendo y hacer nuevas preguntas.</p>
+            <p>Ese interés tiene una relación con el aprendizaje: un estudio de Gruber y sus colaboradores encontró que los participantes recordaban mejor las respuestas a preguntas que les habían generado mayor curiosidad.</p>
+            <p>En mi marca personal, esto se traduce en una disposición a estudiar con profundidad y reconocer cuánto me queda por aprender.</p>
 
-            <h4><span class="obs">Obs. 2</span> Entender procesos</h4>
-            <!-- PENDIENTE (blog, punto 2): desarrolla "Entender procesos". -->
-            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+            <h4><span class="obs">Obs. 2</span> Me anima a explorar lo desconocido</h4>
+            <p>Mi lado aventurero aparece cada vez que me acerco a algo que todavía no comprendo. Explorar puede significar conocer un lugar, comenzar un proyecto o enfrentar una materia que al principio parece difícil.</p>
+            <p>La curiosidad me da una razón para dar ese primer paso, incluso cuando todavía siento inseguridad. Quiero que mi marca refleje esa iniciativa: la voluntad de descubrir, probar y desarrollar nuevas habilidades mientras avanzo.</p>
 
-            <h4><span class="obs">Obs. 3</span> Conectar ideas</h4>
-            <!-- PENDIENTE (blog, punto 3): desarrolla "Conectar ideas". -->
-            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+            <h4><span class="obs">Obs. 3</span> Me lleva a buscar evidencia</h4>
+            <p>Mi interés por la ciencia me invita a detenerme frente a una afirmación y preguntar: ¿cómo lo sabemos?, ¿qué pruebas existen?, ¿de dónde viene esta información?</p>
+            <p>Quiero construir una voz confiable, capaz de distinguir entre una opinión, una posibilidad y una conclusión respaldada por evidencia. Eso también implica aceptar correcciones. Reconocer que una idea necesita cambiar es una manera de cuidar la calidad de lo que aprendo y comparto.</p>
 
-            <aside class="margin-note" aria-label="Nota al margen">
-              <span class="mono-label">Nota al margen</span>
-              <!-- PENDIENTE: una frase o idea destacada del artículo; se muestra como nota adhesiva. Si no se quiere, borra todo el bloque <aside class="margin-note">…</aside>. -->
-              <p><span class="pendiente">[Pendiente: idea destacada]</span></p>
-            </aside>
+            <h4><span class="obs">Obs. 4</span> Alimenta mi creatividad</h4>
+            <p>Preguntarme cómo funciona algo también me lleva a imaginar cómo podría hacerse de otra manera. Ahí encuentro mi lado creador: en conectar ideas, ensayar alternativas y convertir una inquietud en algo que pueda desarrollar.</p>
+            <p>Aspiro a que esa creatividad se vea en mis proyectos y en mi forma de comunicar. Quiero explicar con claridad, encontrar conexiones interesantes y proponer soluciones que puedan ponerse a prueba. Mi curiosidad adquiere una expresión concreta cuando paso de imaginar a intentar.</p>
 
-            <h4><span class="obs">Obs. 4</span> Explorar</h4>
-            <!-- PENDIENTE (blog, punto 4): desarrolla "Explorar". -->
-            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
-
-            <h4><span class="obs">Obs. 5</span> Compartir lo que aprendo</h4>
-            <!-- PENDIENTE (blog, punto 5): desarrolla "Compartir lo que aprendo". -->
-            <p><span class="pendiente">[Pendiente: desarrollo]</span></p>
+            <h4><span class="obs">Obs. 5</span> Me motiva a compartir lo que descubro</h4>
+            <p>Quiero que mi página sea un espacio donde pueda compartir preguntas, aprendizajes y procesos. Explicar una idea me exige organizar lo que entiendo; escuchar a otras personas me permite descubrir perspectivas que quizá había pasado por alto.</p>
+            <p>Por eso, deseo construir una marca cercana y abierta al diálogo. Me interesa despertar preguntas en quienes me leen y aprender de sus respuestas. Compartir también significa dar crédito a las fuentes y comunicar con honestidad lo que todavía está en construcción.</p>
 
             <h4><span class="obs">Concl.</span> Lo que me llevo</h4>
-            <!-- PENDIENTE: conclusión del artículo (cierre o reflexión final). -->
-            <p><span class="pendiente">[Pendiente: conclusión]</span></p>
+            <p>La curiosidad conecta mi deseo de explorar, mi interés por comprender y mis ganas de crear. Esa es la dirección que quiero darle a mi marca personal: aprender con rigor, experimentar con propósito y compartir el camino.</p>
+
+            <aside class="margin-note margin-note--yellow" aria-label="Nota al margen">
+              <span class="mono-label">Nota al margen</span>
+              <p>¿Qué pregunta te gustaría empezar a explorar hoy?</p>
+            </aside>
           </div>
 
+          <section class="notebook-links" aria-label="Enlaces para seguir explorando">
+            <p class="mono-label">Enlaces para seguir explorando</p>
+            <ul>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/25284006/" target="_blank" rel="noopener noreferrer">Curiosidad y memoria: estudio de Gruber y colaboradores <span aria-hidden="true">↗</span></a> Investigación sobre curiosidad y aprendizaje; resumen en inglés.</li>
+              <li><a href="https://ciencia.nasa.gov/sistema-solar/como-hacer-ciencia-ciudadana-con-la-nasa/" target="_blank" rel="noopener noreferrer">Cómo hacer ciencia ciudadana con la NASA <span aria-hidden="true">↗</span></a> Una introducción en español a la participación de voluntarios en proyectos científicos.</li>
+              <li><a href="https://www.unesco.org/es/open-science" target="_blank" rel="noopener noreferrer">Ciencia abierta — UNESCO <span aria-hidden="true">↗</span></a> Información sobre el acceso al conocimiento científico, la colaboración y la participación de la sociedad.</li>
+            </ul>
+          </section>
+
           <footer class="notebook-footer">
-            <a href="#perfil" class="btn btn--ghost btn--sm"><span aria-hidden="true">←</span> Perfil</a>
+            <a href="#blog-indice" class="btn btn--ghost btn--sm"><span aria-hidden="true">↑</span> Índice</a>
+            <span class="notebook-page">Hoja 1 de 6</span>
+            <a href="#entrada-2" class="btn btn--ghost btn--sm">Siguiente <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+
+        <!-- ---------- Entrada 002 ---------- -->
+        <article class="notebook reveal" id="entrada-2" aria-labelledby="entrada-2-title">
+          <header class="notebook-header">
+            <p class="notebook-meta">
+              <span>Entrada n.º 002</span>
+              <span data-read-time>— min de lectura</span>
+            </p>
+            <h3 class="notebook-title" id="entrada-2-title">¿Por qué quiero estudiar ciencia?</h3>
+            <ul class="tags tags--sm" aria-label="Etiquetas">
+              <li class="tag">Ciencia</li>
+              <li class="tag">Propósito</li>
+            </ul>
+          </header>
+
+          <div class="notebook-body">
+            <p class="notebook-lead">Quiero estudiar ciencia porque me interesa comprender el mundo con más profundidad. Saber que algo ocurre despierta mi interés, pero entender cómo sucede, por qué sucede y cómo podemos comprobarlo me invita a seguir investigando. Entre una primera pregunta y una explicación hay un recorrido que quiero aprender a hacer.</p>
+            <p>La ciencia representa para mí una oportunidad de convertir la curiosidad en conocimiento. También es un camino que conecta con la persona que quiero ser: alguien dispuesta a explorar, capaz de pensar con cuidado y comprometida con lo que aprende.</p>
+
+            <h4><span class="obs">Obs. 1</span> Comprender lo que parece cotidiano</h4>
+            <p>Me atrae la posibilidad de descubrir la complejidad de aquello que tenemos cerca. Una planta que crece hacia la luz, los cambios en el cielo o el funcionamiento del cuerpo pueden convertirse en puntos de partida para investigar.</p>
+            <p>Quiero desarrollar una mirada más atenta, capaz de detenerse en los detalles y formular mejores preguntas. Estudiar ciencia significa, para mí, aprender a observar con intención y reconocer que incluso lo familiar puede guardar algo que todavía no comprendo.</p>
+
+            <h4><span class="obs">Obs. 2</span> Aprender a pensar con rigor</h4>
+            <p>Una de las razones por las que quiero seguir este camino es la oportunidad de fortalecer mi manera de pensar. Deseo aprender a buscar información confiable, comparar explicaciones e interpretar resultados antes de llegar a una conclusión.</p>
+            <p>También quiero adquirir la disciplina para revisar mis propias ideas. Es fácil sentir seguridad cuando una explicación coincide con lo que creemos; el desafío aparece cuando la evidencia nos exige reconsiderarla. Aspiro a desarrollar esa apertura y a sostener mis opiniones con argumentos que pueda explicar y revisar.</p>
+
+            <h4><span class="obs">Obs. 3</span> Explorar y crear</h4>
+            <p>Me identifico con el arquetipo del Aventurero porque me interesa acercarme a lo desconocido. En la ciencia encuentro una forma de vivir esa inquietud: enfrentar preguntas abiertas, aprender nuevas herramientas y avanzar sin conocer de antemano todos los resultados.</p>
+            <p>A esa exploración se suma mi deseo de crear. Me gustaría transformar preguntas en proyectos, imaginar distintas formas de abordar un problema y poner a prueba mis propuestas. Quiero aprender a darle estructura a una idea para que pueda desarrollarse, evaluarse y mejorar.</p>
+
+            <h4><span class="obs">Obs. 4</span> Aportar desde lo que aprenda</h4>
+            <p>Estudiar ciencia también responde a una aspiración personal: que mi aprendizaje tenga una utilidad más allá de mí misma. Me gustaría participar en proyectos relacionados con problemas reales y comprender las necesidades de las personas a quienes podrían beneficiar.</p>
+            <p>Todavía tengo mucho por descubrir sobre las áreas en las que quisiera profundizar. Me permito explorar esas posibilidades con seriedad, sin exigirme decidirlo todo desde el principio. Lo que sí tengo claro es que quiero prepararme para aportar con responsabilidad.</p>
+
+            <h4><span class="obs">Obs. 5</span> Elegir un camino que exige constancia</h4>
+            <p>Sé que mi interés tendrá que acompañarse de trabajo. Habrá conceptos difíciles, preguntas que requieran paciencia y resultados que me obliguen a empezar de nuevo. Quiero aprender a atravesar esos momentos y desarrollar hábitos que sostengan mi curiosidad cuando estudiar resulte exigente.</p>
+            <p>Por eso quiero estudiar ciencia: para comprender mejor, pensar con mayor claridad y ampliar lo que soy capaz de hacer. Mi marca personal nace de esa intención y del compromiso de compartir mi proceso con honestidad.</p>
+
+            <aside class="margin-note margin-note--pink" aria-label="Nota al margen">
+              <span class="mono-label">Nota al margen</span>
+              <p>Quiero darle a mi curiosidad las herramientas necesarias para investigar, crear y contribuir.</p>
+            </aside>
+          </div>
+
+          <section class="notebook-links" aria-label="Enlaces para seguir explorando">
+            <p class="mono-label">Enlaces para seguir explorando</p>
+            <ul>
+              <li><a href="https://ciencia.nasa.gov/" target="_blank" rel="noopener noreferrer">Recursos de ciencia de la NASA en español <span aria-hidden="true">↗</span></a> Contenidos para explorar temas sobre la Tierra, el sistema solar y el universo.</li>
+              <li><a href="https://ciencia.nasa.gov/sistema-solar/como-hacer-ciencia-ciudadana-con-la-nasa/" target="_blank" rel="noopener noreferrer">Cómo hacer ciencia ciudadana con la NASA <span aria-hidden="true">↗</span></a> Una introducción a distintas formas de participar en proyectos científicos.</li>
+              <li><a href="https://www.unesco.org/es/open-science" target="_blank" rel="noopener noreferrer">Ciencia abierta — UNESCO <span aria-hidden="true">↗</span></a> Información sobre el acceso al conocimiento científico y la colaboración.</li>
+            </ul>
+          </section>
+
+          <footer class="notebook-footer">
+            <a href="#entrada-1" class="btn btn--ghost btn--sm"><span aria-hidden="true">←</span> Anterior</a>
+            <span class="notebook-page">Hoja 2 de 6</span>
+            <a href="#entrada-3" class="btn btn--ghost btn--sm">Siguiente <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+
+        <!-- ---------- Entrada 003 ---------- -->
+        <article class="notebook reveal" id="entrada-3" aria-labelledby="entrada-3-title">
+          <header class="notebook-header">
+            <p class="notebook-meta">
+              <span>Entrada n.º 003</span>
+              <span data-read-time>— min de lectura</span>
+            </p>
+            <h3 class="notebook-title" id="entrada-3-title">Aprender a decir “todavía no lo sé”</h3>
+            <ul class="tags tags--sm" aria-label="Etiquetas">
+              <li class="tag">Pensamiento crítico</li>
+              <li class="tag">Honestidad</li>
+            </ul>
+          </header>
+
+          <div class="notebook-body">
+            <p class="notebook-lead">Hay una frase que quiero aprender a decir con tranquilidad: “Todavía no lo sé”. Pronunciarla significa reconocer el punto en el que me encuentro y aceptar que hay algo que necesito comprender mejor.</p>
+            <p>En mi camino hacia el estudio de la ciencia, esa honestidad tiene un lugar importante. Quiero desarrollar la confianza necesaria para hacer preguntas, reconocer mis dudas y buscar respuestas sin sentir que debo saberlo todo desde el principio.</p>
+
+            <h4><span class="obs">Obs. 1</span> Darle espacio a la pregunta</h4>
+            <p>Cuando un tema me interesa, es tentador querer entenderlo de inmediato. Sin embargo, algunas ideas requieren tiempo, distintas explicaciones y más de un intento.</p>
+            <p>Decir “todavía no lo sé” me permite detenerme y precisar mi duda. Quizá desconozco una palabra, me falta una base o no entiendo cómo se llegó a una conclusión. Identificar ese vacío me ayuda a decidir por dónde comenzar.</p>
+            <p>Quiero convertir la incertidumbre en una pregunta que pueda investigar.</p>
+
+            <h4><span class="obs">Obs. 2</span> Cuidar lo que afirmo</h4>
+            <p>También deseo ser responsable con la información que comparto. Antes de presentar una explicación como cierta, quiero revisar de dónde viene, qué evidencia la respalda y cuáles son sus límites.</p>
+            <p>En mi página, esto significa distinguir entre lo que estoy aprendiendo, mis opiniones y aquello que puedo sostener con fuentes. Si encuentro un dato que no comprendo lo suficiente, prefiero investigarlo antes de repetirlo.</p>
+            <p>La confianza que quiero construir con quienes me leen depende de esa honestidad.</p>
+
+            <h4><span class="obs">Obs. 3</span> Escuchar y reconsiderar</h4>
+            <p>Reconocer que desconozco algo también abre espacio para escuchar. Otra persona puede señalar un detalle que pasé por alto, recomendarme una lectura o ayudarme a formular mejor una pregunta.</p>
+            <p>Quiero aprender a recibir esas aportaciones con apertura. También a cambiar de opinión cuando existan buenas razones para hacerlo. Mi compromiso con aprender exige que mis ideas puedan revisarse. Eso implica observar mis propias certezas con el mismo cuidado con el que examino una afirmación ajena.</p>
+
+            <h4><span class="obs">Obs. 4</span> Dar el siguiente paso</h4>
+            <p>La palabra “todavía” expresa una posibilidad, pero también me invita a actuar. Después de reconocer una duda, puedo buscar una fuente confiable, pedir orientación o dedicar tiempo a practicar.</p>
+            <p>Habrá preguntas que no logre responder pronto. Aun así, puedo avanzar en mi comprensión y explicar con mayor claridad qué sé y qué sigue pendiente.</p>
+            <p>Esta es una actitud que quiero incorporar a mi marca personal: curiosidad para preguntar, humildad para escuchar y constancia para investigar.</p>
+
+            <aside class="margin-note margin-note--blue" aria-label="Nota al margen">
+              <span class="mono-label">Nota al margen</span>
+              <p>Decir “todavía no lo sé” es asumir con honestidad el lugar desde el que empiezo a aprender.</p>
+            </aside>
+          </div>
+
+          <section class="notebook-links" aria-label="Enlaces para seguir explorando">
+            <p class="mono-label">Enlaces para seguir explorando</p>
+            <ul>
+              <li><a href="https://educacionbasica.sep.gob.mx/manual-de-pensamiento-critico/" target="_blank" rel="noopener noreferrer">Manual de pensamiento crítico — Secretaría de Educación Pública <span aria-hidden="true">↗</span></a> Un recurso en español sobre preguntas, supuestos y evaluación de hechos.</li>
+              <li><a href="https://www.unesco.org/es/ami" target="_blank" rel="noopener noreferrer">Alfabetización mediática e informacional — UNESCO <span aria-hidden="true">↗</span></a> Información sobre el análisis y uso crítico y responsable de la información.</li>
+            </ul>
+          </section>
+
+          <footer class="notebook-footer">
+            <a href="#entrada-2" class="btn btn--ghost btn--sm"><span aria-hidden="true">←</span> Anterior</a>
+            <span class="notebook-page">Hoja 3 de 6</span>
+            <a href="#entrada-4" class="btn btn--ghost btn--sm">Siguiente <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+
+        <!-- ---------- Entrada 004 ---------- -->
+        <article class="notebook reveal" id="entrada-4" aria-labelledby="entrada-4-title">
+          <header class="notebook-header">
+            <p class="notebook-meta">
+              <span>Entrada n.º 004</span>
+              <span data-read-time>— min de lectura</span>
+            </p>
+            <h3 class="notebook-title" id="entrada-4-title">Mi forma de enfrentar un tema que parece demasiado difícil</h3>
+            <ul class="tags tags--sm" aria-label="Etiquetas">
+              <li class="tag">Aprendizaje</li>
+              <li class="tag">Método de estudio</li>
+            </ul>
+          </header>
+
+          <div class="notebook-body">
+            <p class="notebook-lead">Un texto lleno de conceptos desconocidos puede hacer que una materia parezca inalcanzable. Al pensar en estudiar ciencia, sé que encontraré contenidos que me exigirán paciencia y esfuerzo. Quiero prepararme para abordarlos con un método que me ayude a avanzar.</p>
+            <p>Mi objetivo es transformar una dificultad general —“no entiendo este tema”— en tareas concretas que pueda trabajar. Este es el enfoque que quiero seguir desarrollando.</p>
+
+            <h4><span class="obs">Obs. 1</span> Identificar dónde comienza la confusión</h4>
+            <p>El primer paso consiste en precisar qué no comprendo. Puede ser una definición, una operación o la relación entre dos ideas. Para encontrarlo, puedo intentar explicar lo que he entendido y señalar el momento en el que mi explicación deja de ser clara.</p>
+            <p>Si me falta un conocimiento previo, necesito volver a él. Construir esa base forma parte del trabajo necesario para continuar.</p>
+
+            <h4><span class="obs">Obs. 2</span> Dividir el tema en preguntas pequeñas</h4>
+            <p>Enfrentar un capítulo completo puede resultar abrumador. Por eso, quiero organizar el estudio alrededor de preguntas específicas: qué significa un concepto, cómo se utiliza y en qué situaciones resulta útil.</p>
+            <p>Cada pregunta me da un objetivo para la sesión. También me permite reconocer avances concretos, aunque todavía no domine el tema completo.</p>
+            <p>Un ejemplo resuelto puede servirme de punto de partida; después, necesito intentar otro y observar dónde aparecen las dificultades.</p>
+
+            <h4><span class="obs">Obs. 3</span> Comprobar lo que puedo explicar</h4>
+            <p>Quiero acompañar la lectura con momentos en los que cierre los apuntes e intente recuperar lo aprendido. Puedo escribir una explicación, responder una pregunta o resolver un ejercicio y luego revisar mi respuesta.</p>
+            <p>También quiero distribuir el estudio en varias sesiones. La práctica de recuperación y el estudio espaciado son estrategias respaldadas por investigación sobre el aprendizaje, como explican las investigadoras de The Learning Scientists. Para mí, aplicarlas significa planificar oportunidades para volver al contenido y comprobar qué necesito reforzar.</p>
+
+            <h4><span class="obs">Obs. 4</span> Pedir ayuda con una duda concreta</h4>
+            <p>Pedir orientación puede ser más útil cuando logro mostrar qué intenté y dónde me detuve. En lugar de quedarme en “no entiendo nada”, quiero aprender a expresar preguntas como: “Comprendo este paso, pero no sé por qué se utiliza aquí”.</p>
+            <p>Esa precisión también me ayuda a participar de forma más activa en mi aprendizaje.</p>
+
+            <h4><span class="obs">Obs. 5</span> Evaluar el avance con paciencia</h4>
+            <p>Quiero medir mi progreso observando lo que ahora puedo hacer: explicar una idea, reconocer un error o resolver un problema con menos ayuda.</p>
+            <p>Habrá sesiones difíciles y conceptos que necesiten más tiempo. Mi compromiso es revisar el método, ajustar el ritmo y continuar trabajando.</p>
+
+            <aside class="margin-note margin-note--green" aria-label="Nota al margen">
+              <span class="mono-label">Nota al margen</span>
+              <p>Frente a un tema difícil, quiero encontrar el siguiente paso que sí puedo dar.</p>
+            </aside>
+          </div>
+
+          <section class="notebook-links" aria-label="Enlaces para seguir explorando">
+            <p class="mono-label">Enlaces para seguir explorando</p>
+            <ul>
+              <li><a href="https://www.learningscientists.org/learning-scientists-podcast/2018/3/7/episode-14-how-students-can-use-spacing-and-retrieval-practice" target="_blank" rel="noopener noreferrer">Cómo utilizar el estudio espaciado y la práctica de recuperación — The Learning Scientists <span aria-hidden="true">↗</span></a> Episodio con transcripción en inglés dirigido a estudiantes.</li>
+              <li><a href="https://www.learningscientists.org/posters" target="_blank" rel="noopener noreferrer">Materiales sobre estrategias de aprendizaje — The Learning Scientists <span aria-hidden="true">↗</span></a> Recursos visuales sobre recuperación, ejemplos concretos y otras estrategias.</li>
+            </ul>
+          </section>
+
+          <footer class="notebook-footer">
+            <a href="#entrada-3" class="btn btn--ghost btn--sm"><span aria-hidden="true">←</span> Anterior</a>
+            <span class="notebook-page">Hoja 4 de 6</span>
+            <a href="#entrada-5" class="btn btn--ghost btn--sm">Siguiente <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+
+        <!-- ---------- Entrada 005 ---------- -->
+        <article class="notebook reveal" id="entrada-5" aria-labelledby="entrada-5-title">
+          <header class="notebook-header">
+            <p class="notebook-meta">
+              <span>Entrada n.º 005</span>
+              <span data-read-time>— min de lectura</span>
+            </p>
+            <h3 class="notebook-title" id="entrada-5-title">¿Qué pasa cuando la ciencia y la creatividad trabajan juntas?</h3>
+            <ul class="tags tags--sm" aria-label="Etiquetas">
+              <li class="tag">Creatividad</li>
+              <li class="tag">Diseño</li>
+            </ul>
+          </header>
+
+          <div class="notebook-body">
+            <p class="notebook-lead">Me interesa comprender cómo funcionan las cosas y también imaginar qué podría hacer con ese conocimiento. En esa relación encuentro una conexión entre mis arquetipos del Sabio y el Creador: el deseo de investigar y la inquietud de desarrollar ideas propias.</p>
+            <p>Quiero aprender a combinar ambas capacidades. Formular preguntas, imaginar alternativas y evaluar lo que propongo es una forma de acercarme a los proyectos que me gustaría realizar.</p>
+
+            <h4><span class="obs">Obs. 1</span> Imaginar distintas maneras de abordar un problema</h4>
+            <p>Frente a una pregunta, quiero darme espacio para considerar varias posibilidades. Puedo explorar distintas explicaciones, pensar cómo representar una idea o imaginar qué herramienta ayudaría a observar mejor un fenómeno.</p>
+            <p>La creatividad aparece en esas decisiones. También en la capacidad de conectar conocimientos que, al principio, parecen separados.</p>
+            <p>Me gustaría cultivar esa apertura sin apresurarme a elegir la primera propuesta. Antes de decidir, quiero aprender a comparar alternativas y explicar por qué alguna merece desarrollarse.</p>
+
+            <h4><span class="obs">Obs. 2</span> Darle forma a una posibilidad</h4>
+            <p>Una idea necesita trabajo para convertirse en algo que pueda evaluarse. Puede comenzar como un dibujo, un esquema, una pregunta de investigación o un modelo sencillo.</p>
+            <p>En ingeniería, por ejemplo, el proceso de diseño presentado por NASA JPL incluye identificar un problema, proponer soluciones, construir un prototipo, probarlo y mejorarlo.</p>
+            <p>Me atrae esa relación entre imaginación y revisión. Quiero desarrollar propuestas que pueda examinar con criterios claros, aprender de sus resultados y modificar cuando sea necesario.</p>
+
+            <h4><span class="obs">Obs. 3</span> Crear dentro de condiciones reales</h4>
+            <p>El tiempo, los materiales y los conocimientos disponibles influyen en lo que podemos realizar. Quiero aprender a tenerlos en cuenta desde el comienzo de un proyecto.</p>
+            <p>Si una propuesta requiere recursos que todavía no tengo, puedo reducir su alcance, buscar otra manera de representarla o comenzar por una parte. Estas decisiones me exigen pensar con creatividad y reconocer mis posibilidades actuales.</p>
+            <p>También me recuerdan que una primera versión puede ser sencilla y, aun así, ayudarme a responder una pregunta importante.</p>
+
+            <h4><span class="obs">Obs. 4</span> Comunicar también requiere imaginación</h4>
+            <p>Otra forma en la que deseo unir ciencia y creatividad es al compartir lo que aprendo. Elegir un ejemplo, preparar una ilustración o construir una explicación exige pensar en quien va a leerla.</p>
+            <p>Quiero encontrar formas interesantes de comunicar sin perder precisión. Eso implica revisar si mis comparaciones ayudan a comprender y señalar sus límites cuando sea necesario.</p>
+            <p>En mi marca personal, esta combinación representa una aspiración concreta: investigar con cuidado, desarrollar ideas y hacerlas comprensibles para otras personas.</p>
+
+            <aside class="margin-note margin-note--orange" aria-label="Nota al margen">
+              <span class="mono-label">Nota al margen</span>
+              <p>Quiero que mi creatividad me ayude a imaginar posibilidades y que mi formación me permita evaluarlas con responsabilidad.</p>
+            </aside>
+          </div>
+
+          <section class="notebook-links" aria-label="Enlaces para seguir explorando">
+            <p class="mono-label">Enlaces para seguir explorando</p>
+            <ul>
+              <li><a href="https://www.jpl.nasa.gov/edu/resources/image/engineering-design-process-flow-chart/" target="_blank" rel="noopener noreferrer">Proceso de diseño en ingeniería — NASA JPL <span aria-hidden="true">↗</span></a> Esquema en inglés sobre diseño, construcción, evaluación y mejora de soluciones.</li>
+              <li><a href="https://www.nasa.gov/stem-content/stemonstrations-engineering-design-process/" target="_blank" rel="noopener noreferrer">STEMonstrations: Engineering Design Process — NASA <span aria-hidden="true">↗</span></a> Recurso educativo en inglés sobre el diseño de tecnología para la Estación Espacial Internacional.</li>
+            </ul>
+          </section>
+
+          <footer class="notebook-footer">
+            <a href="#entrada-4" class="btn btn--ghost btn--sm"><span aria-hidden="true">←</span> Anterior</a>
+            <span class="notebook-page">Hoja 5 de 6</span>
+            <a href="#entrada-6" class="btn btn--ghost btn--sm">Siguiente <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+
+        <!-- ---------- Entrada 006 ---------- -->
+        <article class="notebook reveal" id="entrada-6" aria-labelledby="entrada-6-title">
+          <header class="notebook-header">
+            <p class="notebook-meta">
+              <span>Entrada n.º 006</span>
+              <span data-read-time>— min de lectura</span>
+            </p>
+            <h3 class="notebook-title" id="entrada-6-title">Del “¿y si…?” a un proyecto concreto</h3>
+            <ul class="tags tags--sm" aria-label="Etiquetas">
+              <li class="tag">Método científico</li>
+              <li class="tag">Proyectos</li>
+            </ul>
+          </header>
+
+          <div class="notebook-body">
+            <p class="notebook-lead">Una idea puede aparecer mientras leo, observo mi entorno o intento comprender algo. El entusiasmo inicial me invita a imaginar posibilidades; convertirlas en un proyecto exige decidir qué quiero hacer y cómo voy a comenzar.</p>
+            <p>Quiero desarrollar esa capacidad de pasar de una inquietud a una acción organizada. Para explorar cómo podría hacerlo, imagino un pequeño proyecto sobre el crecimiento de plantas.</p>
+
+            <h4><span class="obs">Obs. 1</span> Convertir el interés en una pregunta</h4>
+            <p>“Quiero investigar sobre plantas” es un punto de partida amplio. Para avanzar, tendría que delimitarlo: ¿cómo se relacionan distintas condiciones de iluminación con el crecimiento de plantas de la misma especie durante un período determinado?</p>
+            <p>La pregunta me ayudaría a decidir qué observar y qué recursos necesito. También tendría que comprobar si el proyecto es viable con el espacio y el tiempo disponibles.</p>
+
+            <h4><span class="obs">Obs. 2</span> Investigar antes de diseñar</h4>
+            <p>Antes de comenzar, buscaría información sobre la especie elegida y sus cuidados. Revisaría qué se conoce sobre el tema y qué aspectos debo considerar para realizar una comparación útil.</p>
+            <p>Las guías de Science Buddies incluyen la investigación previa como parte de la preparación de un proyecto experimental. Para mí, esta etapa también serviría para reconocer si necesito orientación y ajustar una pregunta demasiado ambiciosa.</p>
+
+            <h4><span class="obs">Obs. 3</span> Preparar una prueba que pueda interpretar</h4>
+            <p>Si quisiera poner a prueba una hipótesis, tendría que definir qué condición modificaría, qué mediría y qué procuraría mantener semejante entre los grupos.</p>
+            <p>En este ejemplo, necesitaría considerar factores como el riego, el sustrato y la edad de las plantas. También tendría que decidir cómo registrar la iluminación y utilizar varias plantas por condición para evitar depender de un único ejemplar.</p>
+            <p>Todo esto sería parte del diseño previo. Aún tendría que revisar sus limitaciones antes de sacar conclusiones.</p>
+
+            <h4><span class="obs">Obs. 4</span> Registrar lo que ocurre</h4>
+            <p>Prepararía una tabla para anotar fechas, mediciones y observaciones. También registraría cambios inesperados o dificultades, porque podrían influir en la interpretación.</p>
+            <p>La NOAA recomienda mantener registros cuidadosos de las actividades y los resultados en los proyectos científicos escolares. Quiero incorporar ese hábito para poder explicar después qué hice y sobre qué información se apoyan mis conclusiones.</p>
+
+            <h4><span class="obs">Obs. 5</span> Revisar y compartir</h4>
+            <p>Al terminar, compararía los registros y explicaría qué permiten concluir. Si los datos fueran insuficientes, tendría que reconocerlo y proponer mejoras.</p>
+            <p>Mi publicación podría incluir la pregunta inicial, el procedimiento, los resultados, las fuentes y las limitaciones. Así, compartiría tanto el hallazgo como el proceso que me llevó hasta él.</p>
+            <p>Este ejemplo representa la forma en que quiero desarrollar mis ideas: comenzar con curiosidad, planificar con cuidado y aprender de lo que ocurra.</p>
+
+            <aside class="margin-note margin-note--lilac" aria-label="Nota al margen">
+              <span class="mono-label">Nota al margen</span>
+              <p>Mi siguiente proyecto puede empezar con un “¿y&nbsp;si…?”; llevarlo adelante dependerá de las decisiones que tome después.</p>
+            </aside>
+          </div>
+
+          <section class="notebook-links" aria-label="Enlaces para seguir explorando">
+            <p class="mono-label">Enlaces para seguir explorando</p>
+            <ul>
+              <li><a href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method?lang=en" target="_blank" rel="noopener noreferrer">Pasos del método científico — Science Buddies <span aria-hidden="true">↗</span></a> Guía en inglés para formular preguntas, investigar, experimentar y comunicar resultados.</li>
+              <li><a href="https://www.nesdis.noaa.gov/about/k-12-education/resources-teachers/steps-science-fair-project" target="_blank" rel="noopener noreferrer">Cómo desarrollar un proyecto para una feria científica — NOAA <span aria-hidden="true">↗</span></a> Orientaciones en inglés para planificar, registrar y presentar una investigación.</li>
+            </ul>
+          </section>
+
+          <footer class="notebook-footer">
+            <a href="#entrada-5" class="btn btn--ghost btn--sm"><span aria-hidden="true">←</span> Anterior</a>
+            <span class="notebook-page">Hoja 6 de 6</span>
             <a href="#portafolio" class="btn btn--ghost btn--sm">Portafolio <span aria-hidden="true">→</span></a>
           </footer>
         </article>
+        </div>
       </div>
     </section>
 

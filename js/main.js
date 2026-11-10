@@ -61,6 +61,7 @@
 
   const showPage = (page, { animate = true, focus = true, target = null } = {}) => {
     if (!page) return;
+    const pageChanged = page !== currentPage;
 
     if (page !== currentPage) {
       pages.forEach((p) => { p.hidden = p !== page; p.classList.remove('is-entering'); });
@@ -81,6 +82,16 @@
       ? `${SITE_NAME} | Portafolio`
       : `${heading ? heading.textContent.trim() : page.id} | ${SITE_NAME}`;
 
+    // Entradas del blog: se cambia de hoja en lugar de desplazarse
+    const entry = target && target.closest('.notebook-stack > .notebook');
+    if (entry) {
+      showEntry(entry, { animate: animate && !pageChanged, focus });
+      revealInView(page);
+      onScroll();
+      return;
+    }
+    if (page.id === 'blog' && !currentEntry) showEntry(entries[0], { animate: false, focus: false });
+
     if (target) {
       target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
     } else {
@@ -93,6 +104,166 @@
     revealInView(page);
     onScroll();
   };
+
+  /* =======================================================
+     BLOG: una hoja a la vez, con animación de pasar hoja
+     ======================================================= */
+  const entries = $$('.notebook-stack > .notebook');
+  const indexLinks = $$('.blog-index a');
+  let currentEntry = null;
+  let finishFlip = null;
+
+  entries.forEach((e) => $('.notebook-title', e)?.setAttribute('tabindex', '-1'));
+
+  /* ---- Animación de pasar hoja (tiras que se curvan) ---- */
+  const CURL_MS = 1250;
+  const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const smooth = (x) => { x = Math.min(Math.max(x, 0), 1); return x * x * (3 - 2 * x); };
+
+  function buildCurl(source, stack) {
+    const W = source.offsetWidth;
+    // Solo se anima la parte de la hoja que se ve en pantalla (mucho más ligero)
+    const srcTop = source.getBoundingClientRect().top;
+    const H = Math.max(1, Math.min(source.offsetHeight, window.innerHeight - srcTop + 40));
+    const n = Math.min(Math.max(Math.round(W / 42), 8), 16);
+    const sw = W / n;
+
+    const el = document.createElement('div');
+    el.className = 'page-curl';
+    el.setAttribute('aria-hidden', 'true');
+    el.inert = true;
+    Object.assign(el.style, {
+      left: `${source.offsetLeft}px`, top: `${source.offsetTop}px`,
+      width: `${W}px`, height: `${H}px`,
+    });
+    // Perspectiva centrada en la parte visible de la hoja
+    const visibleMid = window.innerHeight / 2 - srcTop;
+    const py = Math.min(Math.max(visibleMid, 0), H);
+    el.style.perspective = `${Math.max(1600, W * 2.2)}px`;
+    el.style.perspectiveOrigin = `${W * 0.45}px ${py}px`;
+
+    const shadow = document.createElement('div');
+    shadow.className = 'page-curl-shadow';
+    el.append(shadow);
+
+    const strips = [];
+    let parent = el;
+    for (let k = 0; k < n; k++) {
+      const strip = document.createElement('div');
+      strip.className = 'curl-strip';
+      Object.assign(strip.style, { left: `${k === 0 ? 0 : sw}px`, width: `${sw}px`, height: `${H}px` });
+
+      const face = document.createElement('div');
+      face.className = 'curl-face';
+      const clone = source.cloneNode(true);
+      clone.removeAttribute('id');
+      clone.removeAttribute('hidden');
+      clone.querySelectorAll('[id]').forEach((x) => x.removeAttribute('id'));
+      clone.style.width = `${W}px`;
+      clone.style.left = `${-k * sw}px`;
+      const shade = document.createElement('div');
+      shade.className = 'curl-shade';
+      const shine = document.createElement('div');
+      shine.className = 'curl-shine';
+      face.append(clone, shade, shine);
+
+      const back = document.createElement('div');
+      back.className = 'curl-back';
+      const backShade = document.createElement('div');
+      backShade.className = 'curl-shade';
+      back.append(backShade);
+
+      strip.append(face, back);
+      parent.append(strip);
+      parent = strip;
+      strips.push({ strip, shade, shine, backShade });
+    }
+    stack.append(el);
+
+    const LAG = 0.65; // cuánto se adelanta el borde derecho respecto al lomo
+    const render = (p) => {
+      let prevA = 0;
+      strips.forEach((s, k) => {
+        const x = n > 1 ? k / (n - 1) : 1;
+        // Ángulo acumulado de cada tira: el borde derecho gira antes que el lomo
+        const A = 180 * smooth(p * (1 + LAG) - LAG * (1 - x));
+        const local = A - prevA;
+        prevA = A;
+        s.strip.style.transform = `rotateY(${-local}deg)`;
+        const rad = (A * Math.PI) / 180;
+        // Sombra según hacia dónde mira la tira; brillo donde el papel se dobla
+        s.shade.style.opacity = (0.32 * (1 - Math.cos(rad)) / 2).toFixed(3);
+        s.backShade.style.opacity = (0.28 * (1 + Math.cos(rad)) / 2).toFixed(3);
+        s.shine.style.opacity = Math.min(local / 14, 0.4).toFixed(3);
+      });
+      shadow.style.opacity = (1 - p).toFixed(3);
+      // Al final la hoja ya pasó: se desvanece suavemente
+      el.style.opacity = p > 0.82 ? ((1 - p) / 0.18).toFixed(3) : '1';
+    };
+
+    return { el, render };
+  }
+
+  function showEntry(entry, { animate = true, focus = true } = {}) {
+    if (!entry) return;
+    if (finishFlip) finishFlip(); // si hay una hoja girando, terminarla ya
+    const prev = currentEntry;
+    currentEntry = entry;
+
+    indexLinks.forEach((a) => {
+      if (a.hash === `#${entry.id}`) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    entry.classList.add('is-visible');
+
+    // Llevar la parte superior de la libreta a la vista (sin animación)
+    const stack = entry.parentElement;
+    const offset = (header ? header.offsetHeight : 0) + 16;
+    const top = stack.getBoundingClientRect().top;
+    if (top < offset || top > window.innerHeight * 0.6) {
+      window.scrollTo({ top: window.scrollY + top - offset, behavior: 'auto' });
+    }
+
+    if (!prev || prev === entry || !animate || reduceMotion) {
+      entries.forEach((e) => { e.hidden = e !== entry; });
+    } else {
+      // Hacia adelante: la hoja actual se curva y pasa a la izquierda.
+      // Hacia atrás: la hoja anterior regresa curvándose y cubre la actual.
+      const forward = entries.indexOf(entry) > entries.indexOf(prev);
+      const source = forward ? prev : entry; // hoja que gira
+      const under = forward ? entry : prev;  // hoja que queda debajo
+
+      source.hidden = false;
+      const curl = buildCurl(source, stack);
+      source.hidden = true;
+      under.hidden = false;
+      document.documentElement.classList.add('is-page-turning');
+
+      let start = null;
+      let raf = 0;
+      const finish = () => {
+        cancelAnimationFrame(raf);
+        curl.el.remove();
+        document.documentElement.classList.remove('is-page-turning');
+        entries.forEach((e) => { e.hidden = e !== currentEntry; });
+        finishFlip = null;
+        onScroll();
+      };
+      const frame = (now) => {
+        if (start === null) start = now; // el reloj empieza en el primer cuadro dibujado
+        const t = Math.min((now - start) / CURL_MS, 1);
+        const p = easeInOut(t);
+        curl.render(forward ? p : 1 - p);
+        if (t < 1) raf = requestAnimationFrame(frame);
+        else finish();
+      };
+      curl.render(forward ? 0 : 1);
+      raf = requestAnimationFrame(frame);
+      finishFlip = finish;
+    }
+
+    if (focus) $('.notebook-title', entry)?.focus({ preventScroll: true });
+  }
 
   if (pages.length) {
     window.addEventListener('hashchange', () => {
@@ -201,12 +372,13 @@
   /* =======================================================
      BLOG: tiempo de lectura automático
      ======================================================= */
-  const articleBody = $('#article-body');
-  const readTime = $('#read-time');
-  if (articleBody && readTime) {
-    const words = articleBody.textContent.trim().split(/\s+/).length;
+  $$('.notebook').forEach((article) => {
+    const body = $('.notebook-body', article);
+    const readTime = $('[data-read-time]', article);
+    if (!body || !readTime) return;
+    const words = body.textContent.trim().split(/\s+/).length;
     readTime.textContent = `${Math.max(1, Math.round(words / 200))} min de lectura`;
-  }
+  });
 
   /* =======================================================
      GALERÍA DE PROYECTOS
